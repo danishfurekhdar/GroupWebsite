@@ -40,6 +40,7 @@
   number_educ: 0
 
 - name: Dr. Aloka Kumar Sahoo
+  url: alokasahoo.github.io
   role: Post Doctorate
   photo: Aloka.jpg
   info:   
@@ -49,6 +50,7 @@
   number_educ: 0
   
 - name: Danish Furekh Dar
+  url: danishfurekhdar.me
   role: PhD
   photo: danish.jpg
   info: 

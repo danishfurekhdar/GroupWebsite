@@ -4,7 +4,7 @@
 	  <div class="row">
 		<div class="col-sm-4">
 
-		  <p>&copy 2023 Atomic group. Site made with <a href="https://jekyllrb.com">Jekyll</a> and designed by <a href="https://danishfurekhdar.me"> Danish Furekh Dar </a> </p>
+		  <p>&copy <span id="current-year"></span> Atomic group. Site made with <a href="https://jekyllrb.com">Jekyll</a> and designed by <a href="https://danishfurekhdar.me"> Danish Furekh Dar </a> </p>
               <p>We are part of the <a href="https://www.hi-jena.de/de/">Helmholtz Institute</a> at <a href="https://www.hi-jena.de/de/">Jena</a>.</p>
 
 
@@ -30,5 +30,9 @@
   </div>
 </div>
 
+<script>
+    // Update the year dynamically
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ site.url }}{{ site.baseurl }}/js/bootstrap.min.js"></script>

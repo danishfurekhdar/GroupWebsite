@@ -11,5 +11,12 @@
 {% if jekyll.environment == 'production' %}
 {% include analytics.html %}
 {% endif %}
+<script>
+  // Adjust content padding based on the navbar height
+  document.addEventListener("DOMContentLoaded", function() {
+    var navbarHeight = document.querySelector('.navbar-fixed-top').offsetHeight;
+    document.body.style.paddingTop = navbarHeight + 'px';
+  });
+</script>
 
 </head>

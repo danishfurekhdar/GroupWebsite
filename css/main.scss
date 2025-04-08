@@ -1,0 +1,200 @@
+---
+---
+    
+@import "bootstrap";
+
+img { margin-bottom: 24px; 
+     margin-top: 17px; 
+    border-radius:2%;
+}
+
+
+body {
+	padding-top: 70px;
+}
+
+figcaption {
+    text-align: right;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Top navigation bar */
+
+
+p.byline {
+	text-align: center;
+	font-size: 18px;
+	line-height: 36px;
+	margin-top: -24px;
+	margin-bottom: 48px;
+}
+
+
+pubtit {
+	font-weight: bold;
+}
+
+firstp {
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1000px; /* or 950px */
+}
+
+/* Home, News */
+#newsid p {
+	text-align: left;
+}
+
+#homeidtmp h1 {
+	text-align: center;
+}
+
+#newsid img {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+
+//* Member page styles */
+.member-page {
+	padding: 30px 0;
+}
+
+.member-photo {
+	border-radius: 5px;
+	margin-bottom: 20px;
+	max-width: 250px;
+}
+
+.member-links .btn {
+	display: block;
+	margin-bottom: 10px;
+	text-align: left;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.btn-scholar {
+	background-color: #4885ed;
+}
+
+.btn-email {
+	background-color: #d44638;
+}
+
+.btn-website {
+	background-color: #555555;
+}
+
+.btn-linkedin {
+	background-color: #0077b5;
+}
+
+.btn-twitter {
+	background-color: #1da1f2;
+}
+
+.btn-github {
+	background-color: #333333;
+}
+
+.btn-orcid {
+	background-color: #a6ce39;
+}
+
+.btn-researchgate {
+	background-color: #00ccbb;
+}
+
+.btn-facebook {
+	background-color: #4267b2;
+}
+
+.btn-instagram {
+	background-color: #e1306c;
+}
+
+.btn-youtube {
+	background-color: #ff0000;
+}
+
+.btn-google-scholar {
+	background-color: #4285f4;
+}
+
+.btn-reddit {
+	background-color: #ff4500;
+}
+
+.btn-medium {
+	background-color: #00ab6c;
+}
+
+.btn-stackoverflow {
+	background-color: #f48024;
+}
+
+.btn-telegram {
+	background-color: #0088cc;
+}
+
+.btn-whatsapp {
+	background-color: #25d366;
+}
+
+.member-details {
+	background: #f5f5f5;
+	padding: 15px;
+	border-radius: 5px;
+	margin: 20px 0;
+}
+
+.member-bio {
+	margin: 25px 0;
+}
+
+.member-links .btn:hover {
+	opacity: 0.9;
+}
+
+
+  
+/* Team & Publications */
+#gridid img { margin: 16px 22px 6px 0; border-radius:10%; box-shadow: 2px 2px 5px #888888 }
+#homeid img { margin: 0 0 0 0; border-radius:5%; box-shadow: 0px 0px 0px #888888 }
+#picid img { margin: 6px 3px 60px 6px; border-radius:1%; box-shadow: 2px 2px 5px #888888 }
+#gridid .row { margin-bottom: 24px; }
+
+
+/* Grid overrides */
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-5, .col-sm-6,
+.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+/* Grid overrides */
+.col-sm-4 {
+	padding-left: 26px;
+	padding-right: 26px;
+}
+
+
+/* Carusel */
+
+.carousel {
+    border-radius: 3px 3px 3px 3px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+

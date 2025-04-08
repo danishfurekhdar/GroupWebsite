@@ -49,17 +49,39 @@
   email: aloka.kumar.sahoo@uni-jena.de
   number_educ: 0
   
-- name: Danish Furekh Dar
-  url: danishfurekhdar.me
-  role: PhD
-  photo: danish.jpg
-  info: 
-  room: D205(HW)
-  tel: 606
-  email: danish.dar@uni-jena.de
-  number_educ: 0
-  education1: M.Sc - Guru Nanak Dev University, Amritsar punjab, Inda
-  education2: B.Sc - Guru Nanak Dev University, Amritsar punjab, Inda
+- name: "Danish Furekh Dar"
+  slug: "Danish-Furekh-Dar"  # This will create the URL /danish
+  role: "PhD"
+  photo: "danish.jpg"
+  position: "PhD Researcher"
+  email: "danish.dar@uni-jena.de"
+  room: "Room D205, helmholtzweg 4, Jena, Germany"
+  tel: "606"
+  website: "https://danishfurekhdar.me"
+  
+  # Education background
+  education1: "Current: PhD in Physics, Helmholtz Institute"
+  education2: "MSc in Physics, Guru Nanak Dev University, 2021"
+  education3: "BSc in Physics, Guru Nanak Dev University, 2019"
+  number_educ: 3  # Update this to match the number of education entries
+  
+  # Academic profiles
+  google_scholar: "https://scholar.google.com/citations?user=qOhxqbkAAAAJ&hl=en"
+  orcid: "0000-0003-4323-1135"  # Your actual ORCID if available
+  researchgate: "https://www.researchgate.net/profile/Danish-Dar"
+  
+  # Research information
+  research_interests: |
+    - Strong-field Physics
+    - Atomic physics
+    - Nonlinear optics
+    
+  # Biography content (supports markdown)
+  bio: |
+    Born and raised in the heart of Kashmir, I grew up surrounded by nature’s serenity and philosophical wonder. Those early experiences sparked my lifelong curiosity about the universe and our place within it. From the peaks of the Himalayas to the precision of quantum mechanics, I’ve always been drawn to beauty — whether in landscapes or equations.
+
+    After completing my M.Sc. in Physics from Guru Nanak Dev University, I set off on this exciting journey in Europe to understand how light and matter interact at extreme intensities. My research focuses on phenomena like above-threshold ionization (ATI), where atoms are exposed to ultra-intense laser fields, using tools like the strong-field approximation, saddle point methods, and twisted light beams.
+
 
 - name: Richard Bernecker
   role: PhD

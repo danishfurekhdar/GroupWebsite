@@ -33,7 +33,7 @@ permalink: /team/
    <i>
     <a href="{{ site.url }}{{ site.baseurl }}/stephan/CV.pdf" target="_blank">Curriculum vitae</a>, 
     <a href="{{ site.url }}{{ site.baseurl }}/stephan/publist.pdf" target="_blank">Publications</a><br>
-    {{ member.info }} <br>email: &lt;{{ member.email }}&gt; <br> Room: {{ member.room }}  <br>   Phone: +49 3641 947{{ member.tel }}
+    {{ member.info }} <br>email: &lt;<{{ member.email }}>&gt; <br> Room: {{ member.room }}  <br>   Phone: +49 3641 947{{ member.tel }}
   </i> 
   <ul style="overflow: hidden">
 
@@ -98,7 +98,13 @@ permalink: /team/
 {% else %}
   <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/bio-photo.jpg" class="img-responsive" width="25%" style="float: left" />
 {% endif %}
-  <h4>{{ member.name }}</h4>
+  <h4>
+  {% if member.url %}
+    <a href="{{ member.url }}">{{ member.name }}</a>
+  {% else %}
+    {{ member.name }}
+  {% endif %}
+</h4>
   <i>email: <{{ member.email }}> <br> Room: {{ member.room }}  <br>   Phone: +49 3641 947{{ member.tel }}</i>
   <ul style="overflow: hidden">
 
@@ -164,7 +170,13 @@ permalink: /team/
 {% else %}
   <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/bio-photo.jpg" class="img-responsive" width="25%" style="float: left" />
 {% endif %}
-  <h4>{{ member.name }}</h4>
+  <h4>
+  {% if member.url %}
+    <a href="{{ member.url }}">{{ member.name }}</a>
+  {% else %}
+    {{ member.name }}
+  {% endif %}
+</h4>
   <i>email: <{{ member.email }}> <br> Room: {{ member.room }}  <br>   Phone: +49 3641 947{{ member.tel }}</i>
   <ul style="overflow: hidden">
 

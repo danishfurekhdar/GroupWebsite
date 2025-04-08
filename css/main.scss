@@ -23,6 +23,15 @@ figcaption {
 
 /* Top navigation bar */
 
+.navbar-fixed-top {
+    z-index: 1030; /* Ensure the navbar stays on top of content */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Slightly more space for mobile navbar */
+    }
+}
 
 p.byline {
 	text-align: center;

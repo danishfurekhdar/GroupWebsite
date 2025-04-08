@@ -1,0 +1,158 @@
+---
+layout: default
+---
+
+<!-- Add this to prevent duplicate titles -->
+{% if page.title != site.title %}
+  {% assign page_title = page.name | default: page.title %}
+  {% assign site_title = site.title %}
+{% endif %}
+
+<div class="container member-page">
+  <div class="row">
+    <div class="col-md-4">
+      {% if page.photo %}
+        <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/{{ page.photo }}" class="img-responsive member-photo" alt="{{ page.name }}">
+      {% else %}
+        <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/bio-photo.jpg" class="img-responsive member-photo">
+      {% endif %}
+
+		
+      <div class="member-links">
+    {% if page.website %}
+        <a href="{{ page.website }}" target="_blank" class="btn btn-website">
+            <i class="ai ai-link"></i> Personal Page
+        </a>
+    {% endif %}
+
+    {% if page.google_scholar %}
+        <a href="{{ page.google_scholar }}" target="_blank" class="btn btn-google-scholar">
+            <i class="ai ai-google-scholar"></i> Google Scholar
+        </a>
+    {% endif %}
+
+    {% if page.email %}
+        <a href="mailto:{{ page.email }}" class="btn btn-email">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+    {% endif %}
+
+    {% if page.linkedin %}
+        <a href="{{ page.linkedin }}" target="_blank" class="btn btn-linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+    {% endif %}
+
+    {% if page.twitter %}
+        <a href="{{ page.twitter }}" target="_blank" class="btn btn-twitter">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+    {% endif %}
+
+    {% if page.github %}
+        <a href="https://github.com/{{ page.github }}" target="_blank" class="btn btn-github">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    {% endif %}
+
+    {% if page.orcid %}
+        <a href="https://orcid.org/{{ page.orcid }}" target="_blank" class="btn btn-orcid">
+            <i class="fab fa-orcid"></i> ORCID
+        </a>
+    {% endif %}
+
+    {% if page.researchgate %}
+        <a href="{{ page.researchgate }}" target="_blank" class="btn btn-researchgate">
+            <i class="fab fa-researchgate"></i> ResearchGate
+        </a>
+    {% endif %}
+
+    {% if page.facebook %}
+        <a href="{{ page.facebook }}" target="_blank" class="btn btn-facebook">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+    {% endif %}
+
+    {% if page.instagram %}
+        <a href="{{ page.instagram }}" target="_blank" class="btn btn-instagram">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+    {% endif %}
+
+    {% if page.youtube %}
+        <a href="{{ page.youtube }}" target="_blank" class="btn btn-youtube">
+            <i class="fab fa-youtube"></i> YouTube
+        </a>
+    {% endif %}
+
+    {% if page.reddit %}
+        <a href="{{ page.reddit }}" target="_blank" class="btn btn-reddit">
+            <i class="fab fa-reddit"></i> Reddit
+        </a>
+    {% endif %}
+
+    {% if page.medium %}
+        <a href="{{ page.medium }}" target="_blank" class="btn btn-medium">
+            <i class="fab fa-medium"></i> Medium
+        </a>
+    {% endif %}
+
+    {% if page.stackoverflow %}
+        <a href="{{ page.stackoverflow }}" target="_blank" class="btn btn-stackoverflow">
+            <i class="fab fa-stack-overflow"></i> StackOverflow
+        </a>
+    {% endif %}
+
+    {% if page.telegram %}
+        <a href="{{ page.telegram }}" target="_blank" class="btn btn-telegram">
+            <i class="fab fa-telegram"></i> Telegram
+        </a>
+    {% endif %}
+
+    {% if page.whatsapp %}
+        <a href="https://wa.me/{{ page.whatsapp }}" target="_blank" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    {% endif %}
+</div>
+
+    </div>
+    
+    <div class="col-md-8">
+      <h3 class="member-position">{{ page.position }}</h3>
+      
+      <div class="member-details">
+        {% if page.room %}
+          <p><strong>Office:</strong> {{ page.room }}</p>
+        {% endif %}
+        
+        {% if page.tel %}
+          <p><strong>Phone:</strong> +49 3641 947{{ page.tel }}</p>
+        {% endif %}
+      </div>
+      
+      <div class="member-bio">
+        {{ content }}
+      </div>
+      
+      <div class="member-education">
+        <h3>Education</h3>
+        <ul>
+          {% for i in (1..5) %}
+            {% assign education_key = "education" | append: i %}
+            {% if page[education_key] %}
+              <li>{{ page[education_key] }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      
+      {% if page.research_interests %}
+        <div class="member-research">
+          <h3>Research Interests</h3>
+          <p>{{ page.research_interests }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -234,3 +234,32 @@ html, body {
     margin-right: 30px;
 }
 
+.site-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-content a {
+    color: #4885ed;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 15px 0;
+        font-size: 0.9em;
+    }
+}
+

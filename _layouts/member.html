@@ -119,7 +119,9 @@ layout: default
     </div>
     
     <div class="col-md-8">
-      <h1 class="member-name">{{ page.name }}</h1>
+      <h1 class="member-name">
+  		{{ page.title | default: page.name | default: "Team Member" }}
+      </h1>
       <h3 class="member-position">{{ page.position }}</h3>
       
       <div class="member-details">

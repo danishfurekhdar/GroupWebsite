@@ -98,12 +98,13 @@ permalink: /team/
 {% else %}
   <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/bio-photo.jpg" class="img-responsive" width="25%" style="float: left" />
 {% endif %}
-  <h4>{%- if member.url -%}
-  {%- assign clean_url = member.url | replace: 'http://www.atomic-theory.uni-jena.de/team/', '' -%}
-  <a href="https://{{ clean_url }}" target="_blank">{{ member.name }}</a>
-{%- else -%}
-  {{ member.name }}
-{%- endif -%}</h4>
+  <h4>
+  {%- if member.slug -%}
+    <a href="{{ site.baseurl }}/{{ member.slug }}" target="_blank">{{ member.name }}</a>
+  {%- else -%}
+    {{ member.name }}
+  {%- endif -%}
+</h4>
   <i>email: <{{ member.email }}> <br> Room: {{ member.room }}  <br>   Phone: +49 3641 947{{ member.tel }}</i>
   <ul style="overflow: hidden">
 
@@ -169,12 +170,13 @@ permalink: /team/
 {% else %}
   <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/bio-photo.jpg" class="img-responsive" width="25%" style="float: left" />
 {% endif %}
-  <h4>{%- if member.url -%}
-  {%- assign clean_url = member.url | replace: 'http://www.atomic-theory.uni-jena.de/team/', '' -%}
-  <a href="https://{{ clean_url }}" target="_blank">{{ member.name }}</a>
-{%- else -%}
-  {{ member.name }}
-{%- endif -%}</h4>
+  <h4>
+  {%- if member.slug -%}
+    <a href="{{ site.baseurl }}/{{ member.slug }}" target="_blank">{{ member.name }}</a>
+  {%- else -%}
+    {{ member.name }}
+  {%- endif -%}
+</h4>
   <i>email: <{{ member.email }}> <br> Room: {{ member.room }}  <br>   Phone: +49 3641 947{{ member.tel }}</i>
   <ul style="overflow: hidden">
 

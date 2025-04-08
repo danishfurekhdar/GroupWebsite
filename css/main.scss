@@ -61,27 +61,44 @@ firstp {
 }
 
 
-//* Member page styles */
+/* Member page styles */
 .member-page {
 	padding: 30px 0;
 }
 
+/* Responsive image size */
 .member-photo {
 	border-radius: 5px;
 	margin-bottom: 20px;
 	max-width: 250px;
+	width: 100%;
+	height: auto;
 }
 
+/* Responsive link buttons */
 .member-links .btn {
-	display: block;
+	display: inline-flex;
+	align-items: center;
 	margin-bottom: 10px;
-	text-align: left;
+	text-align: center;
 	color: white;
-	padding: 8px 12px;
+	padding: 10px 15px;
 	border-radius: 4px;
 	text-decoration: none;
+	width: 100%;
+	justify-content: center;
+	transition: all 0.3s ease;
 }
 
+.member-links .btn i {
+	margin-right: 8px;
+}
+
+.member-links .btn:hover {
+	opacity: 0.9;
+}
+
+/* Button colors */
 .btn-scholar {
 	background-color: #4885ed;
 }
@@ -126,10 +143,6 @@ firstp {
 	background-color: #ff0000;
 }
 
-.btn-google-scholar {
-	background-color: #4285f4;
-}
-
 .btn-reddit {
 	background-color: #ff4500;
 }
@@ -150,6 +163,7 @@ firstp {
 	background-color: #25d366;
 }
 
+/* Member details styling */
 .member-details {
 	background: #f5f5f5;
 	padding: 15px;
@@ -161,8 +175,49 @@ firstp {
 	margin: 25px 0;
 }
 
-.member-links .btn:hover {
-	opacity: 0.9;
+/* Responsive design */
+@media (max-width: 768px) {
+	.member-page {
+		padding: 20px 10px;
+	}
+
+	.member-photo {
+		max-width: 150px;
+		margin: 0 auto 15px;
+	}
+
+	.member-links .btn {
+		font-size: 0.9em;
+		padding: 8px 10px;
+		width: 100%;
+	}
+
+	.member-links .btn i {
+		margin-right: 5px;
+	}
+
+	.member-details {
+		padding: 10px;
+	}
+
+	.member-bio {
+		margin: 15px 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.member-photo {
+		max-width: 100px;
+	}
+
+	.member-links .btn {
+		font-size: 0.85em;
+		padding: 6px 8px;
+	}
+
+	.member-links .btn i {
+		margin-right: 4px;
+	}
 }
 
 

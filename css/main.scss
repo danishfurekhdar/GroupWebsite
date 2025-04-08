@@ -234,36 +234,9 @@ html, body {
     margin-right: 30px;
 }
 
+/* Footer always at the bottom */
 #footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    margin-top: 30px;
-    text-align: center;
-}
-
-.panel-footer {
-    margin: 0;
-}
-
-#footer a {
-    color: #4885ed;
-    text-decoration: none;
-}
-
-#footer a:hover {
-    text-decoration: underline;
-}
-
-#footer .col-sm-4 {
-    margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-    #footer .col-sm-4 {
-        margin-bottom: 15px;
-        text-align: center;
-    }
+    margin-top: auto;
 }
 
 

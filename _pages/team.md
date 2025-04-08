@@ -100,7 +100,7 @@ permalink: /team/
 {% endif %}
   <h4>
   {% if member.url %}
-    {% set clean_url = member.url.replace('http://www.atomic-theory.uni-jena.de/team/', '') %}
+    {% assign clean_url = member.url | replace: 'http://www.atomic-theory.uni-jena.de/team/', '' %}
     <a href="https://{{ clean_url }}" target="_blank">{{ member.name }}</a>
   {% else %}
     {{ member.name }}
@@ -173,7 +173,7 @@ permalink: /team/
 {% endif %}
   <h4>
   {% if member.url %}
-    {% set clean_url = member.url.replace('http://www.atomic-theory.uni-jena.de/team/', '') %}
+    {% assign clean_url = member.url | replace: 'http://www.atomic-theory.uni-jena.de/team/', '' %}
     <a href="https://{{ clean_url }}" target="_blank">{{ member.name }}</a>
   {% else %}
     {{ member.name }}

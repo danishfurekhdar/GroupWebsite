@@ -29,7 +29,13 @@ permalink: /team/
 {% else %}
   <img src="{{ site.url }}{{ site.baseurl }}/images/teampic/bio-photo.jpg" class="img-responsive" width="25%" style="float: left" />
 {% endif %}
-  <h4>{{ member.name }}</h4>
+  <h4>
+  {%- if member.slug -%}
+    <a href="{{ site.baseurl }}/{{ member.slug }}" target="_blank">{{ member.name }}</a>
+  {%- else -%}
+    {{ member.name }}
+  {%- endif -%}
+</h4>
    <i>
     <a href="{{ site.url }}{{ site.baseurl }}/stephan/CV.pdf" target="_blank">Curriculum vitae</a>, 
     <a href="{{ site.url }}{{ site.baseurl }}/stephan/publist.pdf" target="_blank">Publications</a><br>

@@ -1,5 +1,7 @@
 - name: Prof. Dr. Stephan Fritzsche
   role: Staff
+  position: Professor
+  slug: "Stephan-Fritzsche"
   photo: stephan.png
   info: Professor, Group leader
   room: 204(FS)
@@ -11,7 +13,41 @@
   education3: PhD - University of Kassel
   education4: Postdoc - University of Kassel
   education5: Postdoc - University of Oxford
+  # Academic profiles
+  google_scholar: "https://scholar.google.de/citations?user=cyQLH48AAAAJ&hl=de"
+  orcid: "0000-0003-3101-2824"  # Your actual ORCID if available
+  researchgate: "https://www.researchgate.net/profile/Stephan-Fritzsche"
   
+  # Research information
+  research_interests: |
+    - Relativistic Quantum Dynamics
+    - Strong-field Physics
+    - Multi-photon Ionization
+    - Free-electron Laser (FEL) Interactions
+    - Highly Charged Ions
+    - Photoionization and Autoionization
+    - Light-Matter Interaction
+    - Decay Cascades
+    - Correlated Quantum Systems
+    - Density Matrix Theory
+    - Quantum Electrodynamics (QED)
+    - Computational Atomic Physics
+    - Many-body Theory
+    - Plasma Physics
+    - Orbitally Angular Momentum (OAM) Beams
+    - Atomic and Optical Physics
+    - Computer-Algebraic Methods
+    - Astrophysical and Atomic Data Tools
+ # Biography content (supports markdown)
+  bio: |
+    Prof. Dr. Stephan Fritzsche is a theoretical physicist specializing in relativistic quantum dynamics and atomic physics.  
+    His work focuses on the interaction of matter with intense light fields, particularly in the context of strong-field ionization,  
+    highly charged ions, and free-electron laser (FEL) pulses. He has contributed significantly to the understanding of multi-photon  
+    ionization, decay cascades, and correlated quantum systems. In addition to his research, Prof. Fritzsche develops computational  
+    tools and community resources for use in atomic, plasma, and astrophysical physics. His methodologies combine many-body theory,  
+    density matrix formalism, and computer-algebraic techniques to solve complex quantum systems.
+
+    
 - name: Dr. Anna Maiorova
   role: Post Doctorate
   photo: anna.jpg

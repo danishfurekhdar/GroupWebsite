@@ -15,9 +15,6 @@ jobs:
     - name: Unfreeze lockfile
       run: bundle config set frozen false
 
-    - name: Install system packages for native gems
-      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
-
     - name: Install Ruby gems
       run: |
         gem install bundler
@@ -27,13 +24,6 @@ jobs:
       run: |
         python test.py | grep -v "code object from"
         python pubmerge.py | grep -v "code object from"
-
-    - name: Show contents of OldPubs.json
-      run: |
-        echo "=== Final OldPubs.json ==="
-        cat _data/OldPubs.json
-        echo "=== Validating JSON ==="
-        jq empty _data/OldPubs.json && echo "✅ Valid JSON" || echo "❌ Invalid JSON"
 
     - name: Build Jekyll Site
       run: bundle exec jekyll build --trace

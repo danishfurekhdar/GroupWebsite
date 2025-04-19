@@ -16,19 +16,18 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.1'
-        bundler-cache: true
+        bundler-cache: false  # important to disable cache if Gemfile changes
 
-    - name: Install system dependencies
-      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
-
-    - name: Unfreeze Gemfile (for GitHub build)
+    - name: Unfreeze lockfile
       run: bundle config set frozen false
 
-    - name: Install Ruby Gems
+    - name: Install system packages for native gems
+      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+
+    - name: Install Ruby gems
       run: |
         gem install bundler
-        bundle update  # This regenerates Gemfile.lock dynamically
-
+        bundle update  # this will regenerate Gemfile.lock dynamically
 
     - name: Run Python Scripts
       run: |

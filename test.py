@@ -1,9 +1,24 @@
-from scholarly import scholarly
+import sys
 import json
 import time
 from pathlib import Path
 from datetime import datetime
-import time
+
+print("🚀 Starting test.py")
+sys.stdout.flush()
+
+try:
+    import scholarly
+    print("✅ scholarly imported")
+    sys.stdout.flush()
+
+    print("🧠 Python environment is working")
+    sys.stdout.flush()
+except Exception as e:
+    print(f"❌ Import or execution error: {e}")
+    sys.stdout.flush()
+
+
 def get_publications(author_id):
     try:
         print("Starting pub. search")

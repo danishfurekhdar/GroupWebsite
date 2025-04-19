@@ -1,0 +1,42 @@
+name: Build & Deploy to University Server
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby and Jekyll
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Run Python Scripts
+      run: |
+        python test.py | grep -v "code object from"
+        python pubmerge.py | grep -v "code object from"
+
+    - name: Build Jekyll Site
+      run: bundle exec jekyll build
+
+    - name: Copy site to university server via SCP
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: webserv3.rz.uni-jena.de
+        username: atthdanishfurkh
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "_site/*"
+        target: "web/"

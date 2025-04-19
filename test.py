@@ -22,12 +22,18 @@ user_agent = user_agents.get(current_platform, user_agents['Linux'])
 
 # Create headers with the selected user-agent
 headers = {
-    'User-Agent': user_agent
+    'User-Agent': user_agent,
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Connection': 'keep-alive',
+    'Referer': 'https://www.google.com/',
+    'DNT': '1',  # Do Not Track
 }
-
 
 # Send an HTTP GET request to the Google Scholar profile page with the User-Agent header.
 response = session.get(url, headers=headers)
+print("Status Code:", response.status_code)
+print("Response Headers:", response.headers)
 
 # Check if the request was successful (status code 200).
 if response.status_code == 200:

@@ -12,11 +12,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       
-    - name: Set up Ruby
-      with:
-        ruby-version: '3.1'
-        bundler-cache: false  # important to disable cache if Gemfile changes
-
     - name: Unfreeze lockfile
       run: bundle config set frozen false
 

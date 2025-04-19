@@ -1,82 +1,88 @@
-from scholarly import scholarly, ProxyGenerator
-import json
-import time
-from pathlib import Path
-from datetime import datetime
 import requests
+from bs4 import BeautifulSoup
+import json
+import platform
 
-def get_publications(author_id):
-    try:
-        print("🚀 Starting test.py")
-        # Force scholarly to use requests
-        scholarly._session = requests.Session()
-        author = scholarly.search_author_id(author_id)
-        author_filled = scholarly.fill(author, sections=['publications'])
-        return author_filled.get("publications", [])
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        return []
+session = requests.Session()
+# Replace 'YOUR_GOOGLE_SCHOLAR_URL' with the actual URL to your Google Scholar profile.
+url = 'https://scholar.google.de/citations?hl=de&user=cyQLH48AAAAJ&view_op=list_works&sortby=pubdate'
+
+# Define user-agent headers for different platforms
+user_agents = {
+    'Linux': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'Windows': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+    'Darwin': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+}
+
+# Get the current platform
+current_platform = platform.system()
+
+# Select the appropriate user-agent based on the platform
+user_agent = user_agents.get(current_platform, user_agents['Linux'])
+
+# Create headers with the selected user-agent
+headers = {
+    'User-Agent': user_agent
+}
 
 
-def get_current_year_publications(publications):
-    pub_data = []
-    current_year = datetime.now().year
-    
-    # Filter and process ALL current year publications
-    for pub in publications:
-        try:
-            # Skip if not current year
-            pub_year = int(pub.get("bib", {}).get("pub_year", "0"))
-            if pub_year != current_year:
-                continue
-                
-            time.sleep(1)  # Maintain rate limiting
-            filled_pub = scholarly.fill(pub)
-            bib = filled_pub.get("bib", {})
+# Send an HTTP GET request to the Google Scholar profile page with the User-Agent header.
+response = session.get(url, headers=headers)
+
+# Check if the request was successful (status code 200).
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Find the publication elements on the page.
+    publication_elements = soup.find_all('tr', {'class': 'gsc_a_tr'})
+
+    # Extract publication data.
+    publication_data = []
+    for pub_element in publication_elements:
+        title = pub_element.find('a', {'class': 'gsc_a_at'}).text
+        authors = pub_element.find('div', {'class': 'gs_gray'}).text
+        publication_year = pub_element.find('span', {'class': 'gsc_a_h gsc_a_hc gs_ibl'}).text
+        
+        # Find the publication link, if available
+        source_link_element = pub_element.find('a', {'class': 'gsc_a_at'})
+        source_link = source_link_element['href'] if source_link_element else 'Link Not Found'
+        
+        # Ensure the source link includes "https://scholar.google.de/"
+        if not source_link.startswith('https://scholar.google.de/'):
+            source_link = 'https://scholar.google.de' + source_link
+        
+        # Initialize DOI as 'DOI Not Found'
+        doi = 'DOI Not Found'
+        
+        # Send a request to the publication page
+        publication_page = session.get(source_link, headers=headers)
+        
+        # Check if the request was successful (status code 200)
+        if publication_page.status_code == 200:
+            publication_soup = BeautifulSoup(publication_page.text, 'html.parser')
             
-            # Original author processing
-            authors = bib.get("author", "N/A")
-            if isinstance(authors, list):
-                authors = ", ".join(authors)
-
-            # Original venue priority chain
-            venue = bib.get("venue") or \
-                   bib.get("journal") or \
-                   bib.get("conference") or \
-                   bib.get("booktitle") or \
-                   bib.get("source", "N/A")
-
-            # Original output structure
-            pub_data.append({
-                "title": bib.get("title", "N/A"),
-                "authors": authors,
-                "publication_year": current_year,
-                "citations": filled_pub.get("num_citations", 0),
-                "venue": venue,
-                "source_link": filled_pub.get("pub_url", ""),
-                "doi": filled_pub.get("pub_url", "")
-            })
+            # Find the publication title link on the publication page
+            title_link_element = publication_soup.find('a', {'class': 'gsc_oci_title_link'})
             
-        except Exception as e:
-            print(f"Skipping publication: {e}")
-            continue
-            
-    return pub_data
+            if title_link_element:
+                title_link = title_link_element['href']
+                doi = title_link
+                        
+        # Add more fields as needed
+        
+        publication_info = {
+            'title': title,
+            'authors': authors,
+            'year': publication_year,
+            'link': doi,  # Include the DOI in the publication info
+            # Add more fields as needed
+        }
+        publication_data.append(publication_info)
 
-def save_to_json(data, filename):
-    data_dir = Path(__file__).parent.parent
-    data_dir.mkdir(exist_ok=True)
-    with open(data_dir / filename, "w") as f:
-        json.dump(data, f, indent=2)
+    # Store the publication data in a JSON file.
+    with open('publications.json', 'w', encoding='utf-8') as file:
+        json.dump(publication_data, file, ensure_ascii=False, indent=4)
 
-def main():
-    author_id = "cyQLH48AAAAJ"
-    
-    publications = get_publications(author_id)
-    pub_data = get_current_year_publications(publications)
-    save_to_json(pub_data, "publications.json")
-    print(f"✅ Retrieved {len(pub_data)} publications")
-    print(f"📄 Saved to: {Path(__file__).parent / 'publications.json'}")
-
-if __name__ == "__main__":
-    main()
+    print('Publication data scraped and saved to publications.json')
+else:
+    print('Failed to retrieve data. Check your URL or internet connection.')

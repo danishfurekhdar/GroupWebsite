@@ -42,7 +42,7 @@ jobs:
         python3 pubmerge.py | grep -v "code object from"
 
     - name: Build Jekyll Site
-      run: bundle exec jekyll build
+      run: bundle exec jekyll build --trace
 
     - name: Copy site to university server via SCP
       uses: appleboy/scp-action@v0.1.7

@@ -41,6 +41,13 @@ jobs:
       run: |
         python3 pubmerge.py | grep -v "code object from"
 
+    - name: Show contents of OldPubs.json
+      run: |
+        echo "=== Final OldPubs.json ==="
+        cat _data/OldPubs.json
+        echo "=== Validating JSON ==="
+        jq empty _data/OldPubs.json && echo "✅ Valid JSON" || echo "❌ Invalid JSON"
+
     - name: Build Jekyll Site
       run: bundle exec jekyll build --trace
 

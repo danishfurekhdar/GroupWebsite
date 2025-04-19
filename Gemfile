@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem "jekyll", ">= 3.6.3"
+gem "sass-embedded", "~> 1.66.1"
+gem "jekyll", "~> 4.3.3"
+
 

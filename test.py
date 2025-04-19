@@ -8,7 +8,7 @@ print("🚀 Starting test.py")
 sys.stdout.flush()
 
 try:
-    from scholarly import scholarly
+    import scholarly
     print("✅ scholarly imported")
     sys.stdout.flush()
 

@@ -5,19 +5,23 @@ from pathlib import Path
 from datetime import datetime
 import time
 
-def get_publications(author_id):
-    try:
-        # This needs to be done only once per session
-        pg = ProxyGenerator()
-        pg.FreeProxies()
-        scholarly.use_proxy(pg)
-        # Search for the author and retrieve their publications
-        author = scholarly.search_author_id(author_id)
-        author_filled = scholarly.fill(author, sections=['publications'])
-        return author_filled.get("publications", [])
-    except Exception as e:
-        print(f"Error fetching publications: {str(e)}")
-        return []
+def get_publications(author_id, max_retries=3):
+    for attempt in range(max_retries):
+        try:
+            pg = ProxyGenerator()
+            success = pg.FreeProxies()
+            if not success:
+                print("Warning: Could not setup free proxies")
+            scholarly.use_proxy(pg)
+            
+            author = next(scholarly.search_author_id(author_id))
+            author_filled = scholarly.fill(author, sections=['publications'])
+            return author_filled.get("publications", [])
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {str(e)}")
+            if attempt == max_retries - 1:
+                return []
+            time.sleep(random.uniform(2, 5))
 
 def get_current_year_publications(publications):
     pub_data = []

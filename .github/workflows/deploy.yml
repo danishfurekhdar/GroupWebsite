@@ -52,6 +52,15 @@ jobs:
     - name: Build Jekyll Site
       run: bundle exec jekyll build --trace
 
+    - name: Commit and push updated publications file
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add _data/OldPubs.json
+        git add publications.json
+        git commit -m "🤖 Auto-update: Merged new publications into OldPubs.json" || echo "No changes to commit"
+        git push origin main
+        
     - name: Copy site to university server via SCP
       uses: appleboy/scp-action@v0.1.7
       with:

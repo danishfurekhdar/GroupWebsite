@@ -12,14 +12,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       
-    - name: Verify JSON file
-      run: |
-        echo "File listing:"
-        ls -la _data/
-        echo "JSON content sample:"
-        head -n 3 _data/OldPubs.json
-        jq empty _data/OldPubs.json && echo "JSON is valid" || echo "Invalid JSON"
-    
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:

@@ -28,15 +28,9 @@ jobs:
       run: |
         gem install bundler
         bundle update  # this will regenerate Gemfile.lock dynamically
-    
-    - name: Install Python dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        pip install requests beautifulsoup4
 
     - name: Run Python Scripts
       run: |
-        python3 test.py | grep -v "code object from"
         python3 pubmerge.py | grep -v "code object from"
 
     - name: Build Jekyll Site

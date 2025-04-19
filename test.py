@@ -1,22 +1,21 @@
 import sys
+print("🚀 Starting test.py")
+sys.stdout.flush()
+
+try:
+    print("📦 Trying to import...")
+    from scholarly import scholarly
+    print("✅ scholarly imported")
+    sys.stdout.flush()
+
+except Exception as e:
+    print(f"❌ Import or execution error: {e}")
+    sys.stdout.flush()
 import json
 import time
 from pathlib import Path
 from datetime import datetime
 
-print("🚀 Starting test.py")
-sys.stdout.flush()
-
-try:
-    import scholarly
-    print("✅ scholarly imported")
-    sys.stdout.flush()
-
-    print("🧠 Python environment is working")
-    sys.stdout.flush()
-except Exception as e:
-    print(f"❌ Import or execution error: {e}")
-    sys.stdout.flush()
 
 
 def get_publications(author_id):

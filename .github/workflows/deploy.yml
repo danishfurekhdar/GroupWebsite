@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
@@ -39,7 +39,8 @@ jobs:
 
     - name: Run Python Scripts
       run: |
-        python3 pubmerge.py | grep -v "code object from"
+        python test.py | grep -v "code object from"
+        python pubmerge.py | grep -v "code object from"
 
     - name: Show contents of OldPubs.json
       run: |

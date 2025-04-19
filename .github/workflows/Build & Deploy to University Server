@@ -26,8 +26,8 @@ jobs:
 
     - name: Run Python Scripts
       run: |
-        python test.py
-        python pubmerge.py
+        python test.py | grep -v "code object from"
+        python pubmerge.py | grep -v "code object from"
 
     - name: Build Jekyll Site
       run: bundle exec jekyll build

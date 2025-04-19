@@ -1,4 +1,4 @@
-Build & Deploy to University Server
+name: Build & Deploy to University Server
 
 on:
   push:

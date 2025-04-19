@@ -1,28 +1,24 @@
 import json
 
-# Function to merge and deduplicate publications
-def merge_publications(old_data, new_data):
-    merged_data = new_data.copy()
+# Load existing publications
+with open('_data/OldPubs.json', 'r', encoding='utf-8') as f:
+    old_data = json.load(f)
 
-    for publication in old_data:
-        # Check if the publication name is not already in the old data
-        if publication['title'] not in {pub['title'] for pub in new_data}:
-            merged_data.append(publication)
+# Load new publications
+with open('publications.json', 'r', encoding='utf-8') as f:
+    new_data = json.load(f)
 
-    return merged_data
+# Titles already in old_data
+existing_titles = {pub['title'] for pub in old_data}
 
-# Load the old and new JSON files
-with open('_data/OldPubs.json', 'r', encoding='utf-8') as old_file:
-    old_data = json.load(old_file)
+# Filter new publications that are not already in old_data
+unique_new_pubs = [pub for pub in new_data if pub['title'] not in existing_titles]
 
-with open('publications.json', 'r', encoding='utf-8') as new_file:
-    new_data = json.load(new_file)
+# Add new ones to the top
+merged_publications = unique_new_pubs + old_data
 
-# Merge and deduplicate publications
-merged_publications = merge_publications(old_data, new_data)
+# Save merged list back
+with open('_data/OldPubs.json', 'w', encoding='utf-8') as f:
+    json.dump(merged_publications, f, indent=4)
 
-# Save the updated data back to the old JSON file
-with open('_data/OldPubs.json', 'w') as old_file:
-    json.dump(merged_publications, old_file, indent=4)
-
-print("Data merged and saved successfully.")
+print(f"✅ Added {len(unique_new_pubs)} new publication(s) to the top of OldPubs.json.")

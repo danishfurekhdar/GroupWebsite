@@ -6,6 +6,7 @@ from datetime import datetime
 import time
 def get_publications(author_id):
     try:
+        print("Starting pub. search")
         # Search for the author and retrieve their publications
         author = scholarly.search_author_id(author_id)
         author_filled = scholarly.fill(author, sections=['publications'])

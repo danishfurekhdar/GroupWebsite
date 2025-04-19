@@ -3,25 +3,20 @@ import json
 import time
 from pathlib import Path
 from datetime import datetime
-import time
+import requests
 
-def get_publications(author_id, max_retries=3):
-    for attempt in range(max_retries):
-        try:
-            pg = ProxyGenerator()
-            success = pg.FreeProxies()
-            if not success:
-                print("Warning: Could not setup free proxies")
-            scholarly.use_proxy(pg)
-            
-            author = next(scholarly.search_author_id(author_id))
-            author_filled = scholarly.fill(author, sections=['publications'])
-            return author_filled.get("publications", [])
-        except Exception as e:
-            print(f"Attempt {attempt + 1} failed: {str(e)}")
-            if attempt == max_retries - 1:
-                return []
-            time.sleep(random.uniform(2, 5))
+def get_publications(author_id):
+    try:
+        print("🚀 Starting test.py")
+        # Force scholarly to use requests
+        scholarly._session = requests.Session()
+        author = scholarly.search_author_id(author_id)
+        author_filled = scholarly.fill(author, sections=['publications'])
+        return author_filled.get("publications", [])
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return []
+
 
 def get_current_year_publications(publications):
     pub_data = []

@@ -32,12 +32,12 @@ jobs:
     - name: Install Python dependencies
       run: |
         python3 -m pip install --upgrade pip
-        pip install git+https://github.com/scholarly-python-package/scholarly.git
+        pip install scholarly
 
     - name: Run Python Scripts
       run: |
-        python test.py | grep -v "code object from"
-        python pubmerge.py | grep -v "code object from"
+        python3 test.py | grep -v "code object from"
+        python3 pubmerge.py | grep -v "code object from"
 
     - name: Build Jekyll Site
       run: bundle exec jekyll build

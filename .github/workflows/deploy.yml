@@ -1,4 +1,4 @@
-name: Build & Deploy to University Server
+Build & Deploy to University Server
 
 on:
   push:
@@ -10,8 +10,8 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # Updated to v4
-
+      uses: actions/checkout@v3
+      
     - name: Verify JSON file
       run: |
         echo "File listing:"
@@ -19,36 +19,32 @@ jobs:
         echo "JSON content sample:"
         head -n 3 _data/OldPubs.json
         jq empty _data/OldPubs.json && echo "JSON is valid" || echo "Invalid JSON"
-
+    
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.1'
-        bundler-cache: true
+        bundler-cache: false  # important to disable cache if Gemfile changes
 
-    - name: Install dependencies
+    - name: Unfreeze lockfile
+      run: bundle config set frozen false
+
+    - name: Install system packages for native gems
+      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+
+    - name: Install Ruby gems
       run: |
-        sudo apt-get update
-        sudo apt-get install -y jq dos2unix
-        dos2unix _data/OldPubs.json
+        gem install bundler
+        bundle update  # this will regenerate Gemfile.lock dynamically
 
-    - name: Build site with debug
+    - name: Run Python Scripts
       run: |
-        bundle exec jekyll build --trace --verbose 2>&1 | tee build.log
-        grep -i "error\|warning\|liquid\|nil" build.log || echo "No errors found"
+        python3 pubmerge.py | grep -v "code object from"
 
-    - name: Upload build logs
-      uses: actions/upload-artifact@v4  # Updated to v4
-      with:
-        name: jekyll-debug-logs
-        path: |
-          build.log
-          _site/
+    - name: Build Jekyll Site
+      run: bundle exec jekyll build
 
-    - name: Run Python script
-      run: python3 pubmerge.py | grep -v "code object from"
-
-    - name: Deploy to server
+    - name: Copy site to university server via SCP
       uses: appleboy/scp-action@v0.1.7
       with:
         host: webserv3.rz.uni-jena.de

@@ -28,6 +28,11 @@ jobs:
       run: |
         gem install bundler
         bundle update  # this will regenerate Gemfile.lock dynamically
+    
+    - name: Install Python dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install requests beautifulsoup4
 
     - name: Run Python Scripts
       run: |

@@ -9,6 +9,9 @@ def get_publications(author_id):
         # Search for the author and retrieve their publications
         author = scholarly.search_author_id(author_id)
         author_filled = scholarly.fill(author, sections=['publications'])
+        print("Counts section:", json.dumps(author_filled.get("cites_per_year", {})))
+        # Debug: Print partial author data
+        print("Full author data:", json.dumps(author_filled, indent=2)[:500] + "...")
         return author_filled.get("publications", [])
     except Exception as e:
         print(f"Error fetching publications: {str(e)}")

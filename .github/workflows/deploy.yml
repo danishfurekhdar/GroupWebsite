@@ -3,7 +3,7 @@ name: Build & Deploy to University Server
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # or your branch name
 
 jobs:
   build-deploy:
@@ -19,9 +19,13 @@ jobs:
         ruby-version: '3.1'
         bundler-cache: true
 
-    - name: Install dependencies
+    - name: Install dependencies for native gems
+      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
+
+    - name: Install Ruby dependencies
       run: |
         gem install bundler
+        bundle config set --local path 'vendor/bundle'
         bundle install
 
     - name: Run Python Scripts

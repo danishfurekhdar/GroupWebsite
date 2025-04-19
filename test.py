@@ -60,7 +60,7 @@ def get_current_year_publications(publications):
     return pub_data
 
 def save_to_json(data, filename):
-    data_dir = Path(__file__).parent.parent
+    data_dir = Path(__file__).parent
     data_dir.mkdir(exist_ok=True)
     with open(data_dir / filename, "w") as f:
         json.dump(data, f, indent=2)

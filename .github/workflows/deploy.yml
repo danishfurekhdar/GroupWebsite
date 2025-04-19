@@ -2,8 +2,7 @@ name: Build & Deploy to University Server
 
 on:
   push:
-    branches:
-      - main  # or your branch name
+    branches: [main]
 
 jobs:
   build-deploy:
@@ -13,20 +12,23 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Ruby and Jekyll
+    - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.1'
         bundler-cache: true
 
-    - name: Install dependencies for native gems
+    - name: Install system dependencies
       run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
 
-    - name: Install Ruby dependencies
+    - name: Unfreeze Gemfile (for GitHub build)
+      run: bundle config set frozen false
+
+    - name: Install Ruby Gems
       run: |
         gem install bundler
-        bundle config set --local path 'vendor/bundle'
-        bundle install
+        bundle update  # This regenerates Gemfile.lock dynamically
+
 
     - name: Run Python Scripts
       run: |

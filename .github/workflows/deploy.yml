@@ -11,32 +11,62 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Ensure full history is available
+
+    - name: Verify JSON file existence
+      run: |
+        echo "Checking file paths:"
+        ls -la _data/
+        echo "File content start:"
+        head -n 5 _data/OldPubs.json
+        echo "JSON validity:"
+        jq empty _data/OldPubs.json && echo "Valid JSON" || echo "Invalid JSON"
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.1'
-        bundler-cache: false  # important to disable cache if Gemfile changes
+        bundler-cache: true  # Re-enabled with proper cleanup
 
-    - name: Unfreeze lockfile
-      run: bundle config set frozen false
-
-    - name: Install system packages for native gems
-      run: sudo apt-get update && sudo apt-get install -y protobuf-compiler
-
-    - name: Install Ruby gems
+    - name: Clean environment
       run: |
-        gem install bundler
-        bundle update  # this will regenerate Gemfile.lock dynamically
+        sudo chmod -R a+r .
+        find . -name *.lock -delete
+        rm -rf .jekyll-cache vendor/bundle
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq dos2unix
+        dos2unix _data/OldPubs.json  # Fix line endings if needed
+        bundle config set force_ruby_platform true  # Avoid native gem issues
+        bundle install
+
+    - name: Debug Jekyll environment
+      run: |
+        echo "Ruby version: $(ruby -v)"
+        echo "Jekyll version: $(bundle exec jekyll -v)"
+        echo "Bundler version: $(bundle -v)"
+        echo "Liquid version: $(bundle exec ruby -e 'puts Gem.loaded_specs["liquid"].version')"
+
+    - name: Build with verbose output
+      run: |
+        bundle exec jekyll build --trace --verbose 2>&1 | tee build.log
+        echo "=== Build errors ==="
+        grep -i "error\|warning\|liquid\|nil" build.log || echo "No errors found"
+
+    - name: Upload build log
+      uses: actions/upload-artifact@v3
+      with:
+        name: jekyll-build-log
+        path: build.log
 
     - name: Run Python Scripts
       run: |
         python3 pubmerge.py | grep -v "code object from"
 
-    - name: Build Jekyll Site
-      run: bundle exec jekyll build
-
-    - name: Copy site to university server via SCP
+    - name: Deploy to university server
       uses: appleboy/scp-action@v0.1.7
       with:
         host: webserv3.rz.uni-jena.de

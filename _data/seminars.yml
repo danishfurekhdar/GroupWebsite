@@ -1,3 +1,45 @@
+# Summer Semester 2025
+- date: 2025-04-22
+  speaker: Wu Wang
+  title: Exploring the Variation of the Fine-Structure Constant by Hyperfine Electronic Transition
+  semester: Summer
+
+- date: 2025-04-29
+  speaker: Aloka Kumar Sahoo
+  title: Electron Interactions with Atomic and Confined Atomic Systems
+  semester: Summer
+
+- date: 2025-06-03
+  speaker: Shreyas Ramakrishna
+  title: TBD
+  semester: Summer
+
+- date: 2025-06-10
+  speaker: Richard Bernecker
+  title: TBD
+  semester: Summer
+
+- date: 2025-06-17
+  speaker: Andrey Bondarev
+  title: TBD
+  semester: Summer
+
+- date: 2025-06-24
+  speaker: Anna Maiorova
+  title: TBD
+  semester: Summer
+
+- date: 2025-07-01
+  speaker: Danish Furekh Dar
+  title: TBD
+  semester: Summer
+
+- date: 2025-07-08
+  speaker: Stephan Fritzsche
+  title: TBD
+  semester: Summer
+
+
 # Winter Semester 2024-25
 - date: 2024-10-29
   speaker: Danish Furekh Dar
@@ -46,7 +88,7 @@
 
 - date: 2025-01-21
   speaker: Stephan Fritzsche
-  title: NaN
+  title: JAC
   semester: Winter
 
 #Summer Semester 2024

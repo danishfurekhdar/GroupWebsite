@@ -145,7 +145,7 @@ layout: default
           presentedSeminarList += listItem;
         } 
       }
-	  if (seminarSemester === currentSemester && seminarYear === currentYear && 10 > seminarMonth > 3) {
+	  if (seminarSemester === currentSemester && seminarYear === currentYear && 10 && seminarMonth < 10 && seminarMonth > 3) {
 		if (seminarDate.toLocaleDateString() === currentDate.toLocaleDateString()) {
           var listItem = "<li><strong>" + seminar.date + "</strong><br>";
           listItem += "Speaker: " + seminar.speaker + "<br>";

@@ -27,6 +27,39 @@ figcaption {
     z-index: 1030; /* Ensure the navbar stays on top of content */
 }
 
+.navbar-header {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    position: relative !important;
+}
+
+.navbar-toggle {
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.navbar-brand-custom {
+    font-weight: bold !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin: 0 auto !important;
+    float: none !important;
+    position: static !important;
+}
+
+/* Active navbar link styling */
+.navbar-nav li.active a,
+.navbar-nav li a.active {
+    font-weight: bold !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 @media (max-width: 768px) {
     body {
         padding-top: 70px; /* Slightly more space for mobile navbar */
@@ -247,5 +280,4 @@ html, body {
 #footer {
     margin-top: auto;
 }
-
 

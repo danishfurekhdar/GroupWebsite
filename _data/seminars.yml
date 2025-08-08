@@ -11,30 +11,30 @@
 
 - date: 2025-06-03
   speaker: Shreyas Ramakrishna
-  title: TBD
+  title: Interaction between structured light field and polarized atoms in magnetic field
   semester: Summer
 
 - date: 2025-06-10
   speaker: Richard Bernecker
-  title: TBD
+  title: Quantum state engineering of high-dimensional OAM states by path identity
   semester: Summer
 
 - date: 2025-06-17
-  speaker: Andrey Bondarev
-  title: TBD
+  speaker: Baghdasar Baghdasaryan
+  title: Long-distance multi-photon interference in satellite based quantum networks
   semester: Summer
 
 - date: 2025-06-24
+  speaker: Aloka Kumar Sahoo
+  title: Integrating VS Code, GitHub, and Copilot into Computational Physics Workflows
+  semester: Summer
+
+- date: 2025-07-08
   speaker: Anna Maiorova
   title: TBD
   semester: Summer
 
-- date: 2025-07-01
-  speaker: Danish Furekh Dar
-  title: TBD
-  semester: Summer
-
-- date: 2025-07-08
+- date: 2025-07-15
   speaker: Stephan Fritzsche
   title: TBD
   semester: Summer

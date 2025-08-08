@@ -93,18 +93,36 @@
     
   # Biography content (supports markdown)
   bio: |
-    I completed my university education in Karnataka and later moved to Jena to pursue my doctoral degree in theoretical physics. I successfully defended my thesis, titled Interaction of vector light with atoms on 14th November 2025 and currently pursuing postdoctoral research.
+    I completed my university education in Karnataka and later moved to Jena to pursue my doctoral degree in theoretical physics. I successfully defended my thesis, titled Interaction of vector light with atoms on 14th November 2024 and currently pursuing postdoctoral research.
 
 
 - name: Dr. Aloka Kumar Sahoo
+  slug: "Aloka-Kumar-Sahoo"
   url: alokasahoo.github.io
   role: Post Doctorate
   photo: Aloka.jpg
   info:   
-  room: D205(HW)
+  room: "Room D205, Helmholtzweg 4, Jena, Germany"
   tel: 622
   email: aloka.kumar.sahoo@uni-jena.de
-  number_educ: 0
+  website: "https://alokasahoo.github.io"
+
+  # Education background
+  education1: "PhD in Physics, Indian Institute of Technology Roorkee, India, Feb 2025"
+  education2: "MSc in Physics, Indian Institute of Technology (ISM) Dhanbad, India, 2019"
+  education3: "BSc in Physics, Utkal University, Odisha, India, 2017"
+  number_educ: 3  # Update this to match the number of education entries
+  
+  # Academic profiles
+  google_scholar: "https://scholar.google.com/citations?user=L2mCADEAAAAJ&hl=en"
+  orcid: "0000-0003-2441-4075"  # Your actual ORCID if available
+  researchgate: "https://www.researchgate.net/profile/Aloka-Sahoo-2"
+  
+  # Research information
+  research_interests: |
+    - Electron-Atom Interactions
+    - Strong-field Physics
+
   
 - name: "Danish Furekh Dar"
   slug: "Danish-Furekh-Dar"  # This will create the URL /danish

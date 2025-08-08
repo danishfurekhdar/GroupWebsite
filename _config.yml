@@ -10,7 +10,7 @@ title: Atomic Group
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Website of the Atomic group Jena.
-baseurl: "http://www.atomic-theory.uni-jena.de"
+baseurl: "https://www.atomic-theory.uni-jena.de"
 url: ""
 
 include:

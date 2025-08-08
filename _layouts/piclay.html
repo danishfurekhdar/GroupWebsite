@@ -6,6 +6,11 @@ layout: default
     {% assign carousel_content = site.data.group_pics %}
     {% for image in carousel_content %}
       <div class="item{% if forloop.first %} active{% endif %}">
+        {% if image.year %}
+          <div class="year-header">
+            <h3 class="year-text">Group in {{ image.year }}</h3>
+          </div>
+        {% endif %}
         <img src="{{ site.url }}{{ site.baseurl }}/images/group_pics/{{ image.path }}" class="img-responsive resized-image" alt="Slide {{ forloop.index }}" />
         {% if image.captions %}
           <div class="carousel-caption">
@@ -13,7 +18,6 @@ layout: default
               {% for caption in image.captions %}
                 <p class="caption-text">{{ caption }}</p>
               {% endfor %}
-              <p class="year-text">Group in {{ image.year }}</p>  
             </div>
           </div>
         {% endif %}
@@ -56,15 +60,23 @@ layout: default
   margin: 0;
   color: white;
 }
+
+.year-header {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: 0;
+}
+
 .year-text {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    margin: 0;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-  }
+  margin: 0;
+  color: #343a40;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 </style>
 
 <script>

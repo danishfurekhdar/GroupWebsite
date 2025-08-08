@@ -8,7 +8,7 @@
 		<span class="icon-bar"></span>
 	  </button>
 	
-    <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">Relativistic Quantum Dynamics of Ions and Beams</a>
+    <a class="navbar-brand navbar-brand-custom" href="{{ site.url }}{{ site.baseurl }}/">Relativistic Quantum Dynamics of Ions and Beams</a>
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 	  <ul class="nav navbar-nav navbar-right">
@@ -26,3 +26,38 @@
 	</div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var currentPath = window.location.pathname;
+    var baseUrl = '{{ site.baseurl }}';
+    
+    // Remove baseurl from current path for comparison
+    if (baseUrl && currentPath.startsWith(baseUrl)) {
+        currentPath = currentPath.substring(baseUrl.length);
+    }
+    
+    // Handle root path
+    if (currentPath === '' || currentPath === '/') {
+        currentPath = '/';
+    }
+    
+    // Get all navbar links
+    var navLinks = document.querySelectorAll('.navbar-nav a');
+    
+    navLinks.forEach(function(link) {
+        var linkPath = link.getAttribute('href');
+        
+        // Remove baseurl and site.url from link href for comparison
+        if (linkPath.includes(baseUrl)) {
+            linkPath = linkPath.split(baseUrl)[1] || '/';
+        }
+        
+        // Check if current page matches link
+        if ((currentPath === '/' && linkPath === '/') || 
+            (currentPath !== '/' && linkPath !== '/' && currentPath.startsWith(linkPath))) {
+            link.parentElement.classList.add('active');
+        }
+    });
+});
+</script>

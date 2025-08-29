@@ -66,7 +66,7 @@
   email: a.bondarev@hi-jena.gsi.de
   number_educ: 0
 
-- name: "Shreyas Ramakrishna"
+- name: Dr. Shreyas Ramakrishna
   slug: "Shreyas-Ramakrishna"  # This will create the URL /danish
   role: "Post Doctorate"
   photo: "shreyas.png"
@@ -122,6 +122,34 @@
   research_interests: |
     - Electron-Atom Interactions
     - Strong-field Physics
+
+
+- name: Dr. Houke Huang
+  slug: "Houke-Huang"
+  url: 
+  role: Post Doctorate
+  photo: Houke.jpg
+  info:   
+  room: "Room D202, Helmholtzweg 4, Jena, Germany"
+  tel: 619
+  email: huanghouke@impcas.ac.cn
+  website: 
+
+  # Education background
+  education1: "PhD in Physics, Institute of Modern Physics, The Chinese Academy of Science, Lanzhou, China,  June 2025"
+  education2: "BSc in Mathematics and Applied Mathematics, Northwest University, Xi'an, China, 2020"
+  number_educ: 2  # Update this to match the number of education entries
+  
+  # Academic profiles
+  # google_scholar: ""
+  # orcid: ""  # Your actual ORCID if available
+  researchgate: "https://www.researchgate.net/profile/Houke-Huang?ev=hdr_xprf"
+  
+  # Research information
+  research_interests: |
+    - Electron-nucleus-photon Interactions
+    - Atomic processes of highly charged ions: Dielectronic recombination and electron impact ionization
+    - Deep learning for AMO physics
 
   
 - name: "Danish Furekh Dar"

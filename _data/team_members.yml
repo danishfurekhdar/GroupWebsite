@@ -57,15 +57,6 @@
   email: A.Maiorova@gsi.de
   number_educ: 0
 
-- name: Dr. Andrey Bondarev
-  role: Post Doctorate
-  photo: bondarev.jpeg
-  info: 
-  room: D202(HW)
-  tel: 619
-  email: a.bondarev@hi-jena.gsi.de
-  number_educ: 0
-
 - name: Dr. Shreyas Ramakrishna
   slug: "Shreyas-Ramakrishna"  # This will create the URL /danish
   role: "Post Doctorate"

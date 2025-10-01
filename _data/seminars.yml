@@ -1,3 +1,40 @@
+# Winter Semester 2025-26
+- date: 2025-10-14
+  speaker: Houke Huang
+  title: TBD
+  semester: Winter
+
+- date: 2025-10-28
+  speaker: Danish Furekh Dar
+  title: TBD
+  semester: Winter
+
+- date: 2025-11-11
+  speaker: Anna Maiorova
+  title: TBD
+  semester: Winter
+
+- date: 2025-11-18
+  speaker: Stephan Fritzsche
+  title: TBD
+  semester: Winter
+
+- date: 2025-11-25
+  speaker: Richard Bernecker
+  title: TBD
+  semester: Winter
+
+- date: 2025-12-02
+  speaker: Shreyas Ramakrishna
+  title: TBD
+  semester: Winter
+
+- date: 2025-12-09
+  speaker: Aloka Kumar Sahoo
+  title: TBD
+  semester: Winter
+  
+
 # Summer Semester 2025
 - date: 2025-04-22
   speaker: Wu Wang
@@ -31,7 +68,7 @@
 
 - date: 2025-07-08
   speaker: Anna Maiorova
-  title: TBD
+  title: Polarization transfer in bound-state Compton scattering
   semester: Summer
 
 

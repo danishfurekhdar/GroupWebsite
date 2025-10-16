@@ -17,9 +17,11 @@ REM echo Enter username and password to upload files to Website
 REM set /p username=Enter your username: 
 REM scp -r _site/* %username%@webserv3.rz.uni-jena.de:web/
 scp -4 -o MACs=hmac-sha2-256-etm@openssh.com -o Ciphers=aes128-ctr -r _site/* atthrandolf@webserv3.rz.uni-jena.de:web/
+ssh -4 -o "MACs=hmac-sha2-256-etm@openssh.com" -o "Ciphers=aes128-ctr" atthrandolf@webserv3.rz.uni-jena.de "chmod -f -R 755 ~/web"
 echo All commands executed.
 
 pause
+
 
 
 

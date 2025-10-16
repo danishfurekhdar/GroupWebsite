@@ -1,5 +1,59 @@
 [
     {
+        "title": "Simulated Photoabsorption Spectra for Singly and Multiply Charged Ions",
+        "authors": "S Fritzsche, AK Sahoo, L Sharma, S Schippers",
+        "year": "2025",
+        "link": "https://www.mdpi.com/2218-2004/13/9/77"
+    },
+    {
+        "title": "Quantum state engineering of maximally entangled photon pairs by path identity",
+        "authors": "R Bernecker, B Baghdasaryan, S Fritzsche",
+        "year": "2025",
+        "link": "https://arxiv.org/abs/2508.13638"
+    },
+    {
+        "title": "Search for variations of the fine-structure constant via the hyperfine electronic bridge in highly charged  ions",
+        "authors": "W Wang, S Fritzsche, Y Li",
+        "year": "2025",
+        "link": "https://link.aps.org/doi/10.1103/64n6-9b44"
+    },
+    {
+        "title": "Electron-impact multiple ionization in JAC: integration and application",
+        "authors": "B Li, Y Song, Y Ma, S Fritzsche",
+        "year": "2025",
+        "link": "https://link.springer.com/article/10.1140/epjd/s10053-025-01031-9"
+    },
+    {
+        "title": "The ionization mechanisms and dynamics for acceleration of energetic highly charged Au ions by high-intensity high-contrast laser pulses",
+        "authors": "M Nishiuchi, C Liu, M Hata, N Dover, K Kondo, A Kon, H Sakaki, ...",
+        "year": "2025",
+        "link": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/PC13534/PC135340M/The-ionization-mechanisms-and-dynamics-for-acceleration-of-energetic-highly/10.1117/12.3056423.short"
+    },
+    {
+        "title": "Absolute rate coefficients for dielectronic recombination of sodium-like iron ions: experiment and theory",
+        "authors": "HK Huang, WQ Wen, ZK Huang, Y Yuan, CY Zhang, R Si, SJ Wu, ...",
+        "year": "2025",
+        "link": "https://iopscience.iop.org/article/10.3847/1538-4365/adcc25/meta"
+    },
+    {
+        "title": "Recombination effects in laser-driven acceleration of heavy ions",
+        "authors": "S Morris, DO Gericke, S Fritzsche, J Machado, JP Santos, M Afshari",
+        "year": "2025",
+        "link": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.111.065209"
+    },
+    {
+        "title": "Singly differential cross section in the generalized binary-encounter-Bethe model for electron impact ionization of polyatomic molecules",
+        "authors": "YC Wang, J Ma, LG Jiao, S Fritzsche",
+        "year": "2025",
+        "link": "https://link.springer.com/article/10.1140/epjd/s10053-025-01009-7"
+    },
+    {
+        "title": "Interaction of a Poincar\u00e9 beam with optically polarized atoms in the presence of a constant magnetic field",
+        "authors": "S Ramakrishna, S Fritzsche",
+        "year": "2025",
+        "link": "https://link.aps.org/doi/10.1103/5r63-5hl1"
+    },
+    {
         "title": " multiconfigurational calculations of experimentally significant energy levels and transition rates in Lr I ",
         "authors": "JS Andrews, AI Bondarev, P J\u00f6nsson, J Grumer, S Raeder, S Fritzsche, ...",
         "year": "2025",

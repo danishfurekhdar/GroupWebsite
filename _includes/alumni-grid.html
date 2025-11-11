@@ -23,9 +23,14 @@
         </div>
       </div>
 
-      {% if a.thesis %}
-      <p class="alumni-thesis"><span>Thesis:</span> {{ a.thesis }}</p>
+      {% if a.degree == "Postdoc" or a.degree == "Visitor" %}
+        {% if a.work %}
+          <p class="alumni-thesis"><span>Research:</span> {{ a.work }}</p>
+        {% endif %}
+      {% elsif a.thesis %}
+        <p class="alumni-thesis"><span>Thesis:</span> {{ a.thesis }}</p>
       {% endif %}
+
 
       <div class="alumni-now">
         {% if a.now_role or a.now_at %}

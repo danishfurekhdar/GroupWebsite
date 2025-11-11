@@ -320,3 +320,18 @@
   now_at: ""
   links:
     email: ""
+    
+- name: Danish Furekh Dar
+  degree: PhD
+  years: 2025
+  graduation_year: 2025
+  thesis: "Theoretical Study of Atomic Ionization Under Intense Laser Pulses"
+  photo: "/images/alumni/danish.jpg"
+  homepage: "http://www.atomic-theory.uni-jena.de/Danish-Furekh-Dar/"
+  now_role: "Postdoctoral Researcher"
+  now_at: ""
+  links:
+    orcid: "0000-0002-9999-8888"
+    scholar: "https://scholar.google.com/citations?user=YYYY"
+    linkedin: ""
+    email: "danish.dar@uni-jena.de"

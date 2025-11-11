@@ -1,86 +1,322 @@
-- name: Anne Weber
-  degree: PhD
-  years: 2019–2024
-  graduation_year: 2024
-  thesis: "Nonlinear interference and electron dynamics in strong-field ionization"
-  photo: "/images/alumni/anne-weber.jpg"
-  now_role: Postdoc
-  now_at: "Max Planck Institute for the Physics of Complex Systems, Dresden"
-  links:
-    orcid: "0000-0002-1234-5678"
-    scholar: "https://scholar.google.com/citations?user=XXXX"
-    linkedin: "https://www.linkedin.com/in/anne-weber"
-    email: "anne@example.com"
+# ------------------------------------------------------------
+# Accomplished Student Works
+# ------------------------------------------------------------
 
-- name: Shreyas Ramakrishna
-  degree: MSc
-  years: 2021–2023
-  graduation_year: 2023
-  thesis: "Nondipole momentum shifts in mid-IR ATI"
-  photo: "/images/alumni/shreyas.jpg"
-  now_role: PhD candidate
-  now_at: "FSU Jena"
+- name: Robert Müller
+  degree: BSc
+  years: 2013
+  graduation_year: 2013
+  thesis: "Angular and polarization properties of bremsstrahlung radiation in the short-wavelength limit"
+  photo: ""
+  now_role: ""
+  now_at: ""
   links:
-    orcid: ""
-    scholar: ""
-    linkedin: ""
-    email: "shreyas@example.com"
+    email: ""
+
+- name: Jacob Abel
+  degree: BSc
+  years: 2014
+  graduation_year: 2014
+  thesis: "Tomographic reconstruction of density matrices from informationally complete and incomplete measurements: Implementation and comparison of entanglement measures for different methods"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Tobias Bucher
+  degree: BSc
+  years: 2014
+  graduation_year: 2014
+  thesis: "Implementation and simulation of discrete-time quantum walks on regular graphs within the Feynman tools"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Sebastian Stock
+  degree: BSc
+  years: 2014
+  graduation_year: 2014
+  thesis: "Berechnung der Winkelverteilung und Polarisation Thomson-gestreuter Photonen: Vergleich zwischen ebenen Wellen und Twisted Light"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Thorsten Jahrssetz
+  degree: PhD
+  years: "March 2015"
+  graduation_year: 2015
+  thesis: "Two-photon processes in highly charged ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Robert Müller
+  degree: MSc
+  years: 2015
+  graduation_year: 2015
+  thesis: "Radiative recombination in the presence of an intense laser field"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Eric Abraham
+  degree: BSc
+  years: 2015
+  graduation_year: 2015
+  thesis: "Mutually unbiased bases and quantum state tomography with a minimal set of measurement operators"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Michael Schulz
+  degree: BSc
+  years: 2016
+  graduation_year: 2016
+  thesis: "Selection rules for relativistic photoionization by twisted light"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Lea Schulze
+  degree: BSc
+  years: 2016
+  graduation_year: 2016
+  thesis: "Scattering of twisted electrons at dimers"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Sebastian Stock
+  degree: MSc
+  years: 2017
+  graduation_year: 2017
+  thesis: "Auger cascades in resonantly excited neon"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: David Wandel
+  degree: BSc
+  years: 2017
+  graduation_year: 2017
+  thesis: "Darstellung und Charakterisierung von Vortexstrahlung"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Margarita Lapteva
+  degree: BSc
+  years: 2017
+  graduation_year: 2017
+  thesis: "Laserkühlung von Atomen: Grundlagen und Anwendung"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Zhongwen Wu
+  degree: PhD
+  years: "May 2017"
+  graduation_year: 2017
+  thesis: "Angular correlation and polarization of X-rays emitted from highly charged ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Anton Peshkov
+  degree: PhD
+  years: 2018
+  graduation_year: 2018
+  thesis: "Interaction of atoms with twisted light"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Baghdasar Baghdasaryan
+  degree: BSc
+  years: 2018
+  graduation_year: 2018
+  thesis: "Two-color above-threshold ionization of atoms and ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Pierre Abele
+  degree: BSc
+  years: 2018
+  graduation_year: 2018
+  thesis: "Above-threshold ionization of atoms in different initial states"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Randolf Beerwerth
+  degree: PhD
+  years: "June 2019"
+  graduation_year: 2019
+  thesis: "Electron correlation in relativistic multiconfiguration calculations of isotope shift parameters, hyperfine coupling constants, and atomic processes"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Moazzam Bilal
+  degree: PhD
+  years: "November 2019"
+  graduation_year: 2019
+  thesis: "High precision many-electron calculations for multiply-charged ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Baghdasar Baghdasaryan
+  degree: MSc
+  years: 2020
+  graduation_year: 2020
+  thesis: "Characterization of opening angle correlations of a biphoton state decomposed in Bessel modes"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Dmitrii Samoilenko
+  degree: MSc
+  years: 2020
+  graduation_year: 2020
+  thesis: "Calculation of elastic photon scattering on heavy highly charged ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Willi Paufler
+  degree: PhD
+  years: 2020
+  graduation_year: 2020
+  thesis: "High-harmonic generation with Laguerre–Gaussian beams"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Jirí Hofbrucker
+  degree: PhD
+  years: 2020
+  graduation_year: 2020
+  thesis: "Two-photon ionization of many-electron atoms"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Birger Böning
+  degree: PhD
+  years: 2020
+  graduation_year: 2020
+  thesis: "Above-threshold ionization driven by spatially structured laser fields"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Jiahao Fan
+  degree: MSc
+  years: 2021
+  graduation_year: 2021
+  thesis: "Relativistic calculation of bichromatic two-photon K-shell ionization"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Shahram Panahiyan
+  degree: PhD
+  years: 2021
+  graduation_year: 2021
+  thesis: "Toward quantum control in discrete-time quantum walk"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
+
+- name: Anne Weber
+  degree: MSc
+  years: 2021
+  graduation_year: 2021
+  thesis: "QED corrections to the hyperfine splitting and g factor of few-electron ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
+  links:
+    email: ""
 
 - name: Björn Minneker
-  degree: Postdoc
-  years: 2020–2022
-  graduation_year: 2022
-  work: "HPC toolchains for strong-field theory (group lead projects)"
-  photo: "/images/alumni/bjoern.jpg"
-  now_role: Senior Scientist
-  now_at: "GSI Helmholtzzentrum"
-  links:
-    linkedin: "https://www.linkedin.com/in/bjoern-minneker"
-    email: "bjoern@example.com"
-
-- name: Danish Furekh Dar
   degree: PhD
-  years: 2021–2025
-  graduation_year: 2025
-  thesis: "Theoretical Investigations of Strong-Field Ionization and Momentum Distributions"
-  photo: "/images/alumni/danish.jpg"
-  now_role: Postdoc
-  now_at: "TBD"
-  links:
-    orcid: "0000-0002-9999-8888"
-    scholar: "https://scholar.google.com/citations?user=YYYY"
-    email: "danish@example.com"
-
-- name: Maria Schmidt
-  degree: BSc
-  years: 2022–2023
+  years: 2023
   graduation_year: 2023
-  thesis: "ATI peak spacing in few-cycle pulses"
+  thesis: "Generation of spatio-temporal structured high-order harmonics"
   photo: ""
-  now_role: MSc student
-  now_at: "ETH Zürich"
+  now_role: ""
+  now_at: ""
   links:
-    linkedin: "https://www.linkedin.com/in/maria-schmidt"
+    email: ""
 
-- name: Luca Rossi
-  degree: MSc
-  years: 2020–2022
-  graduation_year: 2022
-  thesis: "Twisted beams and PMDs"
-  photo: "/images/alumni/luca.jpg"
-  now_role: Software Engineer
-  now_at: "NVIDIA, Munich"
+- name: Romain Soguel
+  degree: PhD
+  years: 2023
+  graduation_year: 2023
+  thesis: "On a vacuum state redefinition in QED corrections to energy shifts of heavy highly charged ions"
+  photo: ""
+  now_role: ""
+  now_at: ""
   links:
-    linkedin: "https://www.linkedin.com/in/luca-rossi"
+    email: ""
 
-- name: Prof. Emilio Fiordilino
-  degree: Visitor
-  years: 2024
-  graduation_year: 2024
-  work: "Collaborative work on photoionization dynamics"
-  photo: "/images/alumni/emilio.jpg"
-  now_role: Professor
-  now_at: "University of Palermo, Italy"
+- name: Darvin Wanisch
+  degree: PhD
+  years: 2023
+  graduation_year: 2023
+  thesis: "Dynamics of Quantum Information in Many-Body Systems with Nonlocal Interactions"
+  photo: ""
+  now_role: ""
+  now_at: ""
   links:
-    email: "emilio@example.com"
-
+    email: ""

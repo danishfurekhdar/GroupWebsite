@@ -1,0 +1,53 @@
+- title: Above-Threshold Ionization (ATI) Interference
+  blurb: Unravel channel-resolved interference using JA vs. saddle-point methods; compare dipole vs. nondipole shifts.
+  level: [BSc, MSc, PhD]
+  tags: [ATI, Strong-field, Interference]
+  supervisor: Prof. Stephan Fritzsche
+  contact: s.fritzsche@uni-jena.de
+  link: /research/ati/
+  icon: "🌀"
+
+- title: Nondipole Effects & Photon Momentum Partition
+  blurb: Quantify p·A and k·r corrections; predict forward momentum offsets for mid-IR pulses.
+  level: [MSc, PhD]
+  tags: [Nondipole, Mid-IR, Momentum]
+  supervisor: Danish Furekh Dar
+  contact: danish.dar@uni-jena.de
+  link: /research/nondipole/
+  icon: "🧭"
+
+- title: Twisted (Bessel) Beams & PMDs
+  blurb: Model helical phase fronts; compute PMDs vs. opening angle and helicity for few-cycle pulses.
+  level: [MSc, PhD]
+  tags: [Bessel, OAM, PMD]
+  supervisor: Anne Weber
+  contact: anne.weber@uni-jena.de
+  link: /research/twisted/
+  icon: "🧿"
+
+- title: Volkov-Coulomb Improvements
+  blurb: Incorporate Coulomb corrections into Volkov states to improve low-intensity predictions.
+  level: [PhD, Postdoc]
+  tags: [Coulomb, SFA, Theory]
+  supervisor: Stephan Fritzsche
+  contact: s.fritzsche@uni-jena.de
+  link: /research/volkov-coulomb/
+  icon: "🔬"
+
+- title: High-Performance SFA Toolchain (Julia)
+  blurb: Build fast SFA/JA solvers; HPC scaling, HDF5 I/O, and reproducible pipelines.
+  level: [BSc, MSc]
+  tags: [Julia, HPC, Software]
+  supervisor: Björn Minneker
+  contact: b.minneker@uni-jena.de
+  link: /software/sfa-julia/
+  icon: "⚙️"
+
+- title: Partial-Wave Expansion Beyond 1s
+  blurb: Extend nondipole SFA within partial-wave formalism for noble gases beyond ground state.
+  level: [MSc, PhD]
+  tags: [Partial-wave, Noble gases]
+  supervisor: S. Fritzsche
+  contact: s.fritzsche@uni-jena.de
+  link: /research/partial-wave/
+  icon: "📈"

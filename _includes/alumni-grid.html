@@ -47,106 +47,83 @@
   :root { --fg:#e5e7eb; --muted:#94a3b8; --accent:#60a5fa; }
 }
 
-/* general layout */
-.alumni-wrap { margin:2rem 0 3rem; }
-.alumni-header {
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;
+/* layout and header */
+.alumni-wrap{ margin:2.5rem 0 4rem; }
+.alumni-header{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.alumni-header h2{ margin:0; font-size:clamp(2.2rem,1.8rem + 1.4vw,3rem); font-weight:800; }
+
+/* filters */
+.filters{ display:flex; gap:1rem; flex-wrap:wrap; }
+.fbtn{
+  border:2px solid var(--muted); color:var(--muted); background:transparent;
+  padding:.7rem 1.3rem; border-radius:999px; font-size:1.25rem; cursor:pointer; font-weight:700;
 }
-.alumni-header h2 {
-  margin:0;
-  font-size:clamp(2rem,1.6rem + 1vw,2.6rem);
-  font-weight:800;
+.fbtn.is-active, .fbtn:hover{
+  color:var(--accent); border-color:var(--accent);
+  box-shadow:0 0 0 5px var(--ring);
 }
 
-/* filter buttons */
-.filters { display:flex; gap:.9rem; flex-wrap:wrap; }
-.fbtn {
-  border:1px solid var(--muted);
-  color:var(--muted);
-  background:transparent;
-  padding:.6rem 1rem;
-  border-radius:999px;
-  font-size:1.1rem;
-  cursor:pointer;
-  font-weight:600;
+/* list */
+.alumni-list{
+  margin-top:2.5rem;
+  display:flex; flex-direction:column; gap:2rem;
 }
-.fbtn.is-active, .fbtn:hover {
-  color:var(--accent);
-  border-color:var(--accent);
-  box-shadow:0 0 0 4px var(--ring);
-}
-
-/* list items */
-.alumni-list {
-  margin-top:2rem;
-  display:flex;
-  flex-direction:column;
-  gap:1.5rem;
-}
-
-.alumni-item {
-  border-bottom:1px solid rgba(148,163,184,.3);
-  padding-bottom:1rem;
-  margin-bottom:.8rem;
+.alumni-item{
+  border-bottom:2px solid rgba(148,163,184,.3);
+  padding-bottom:1.2rem; margin-bottom:.8rem;
   transition:background .15s ease;
 }
-.alumni-item:hover {
+.alumni-item:hover{
   background:rgba(37,99,235,.05);
 }
 @media (prefers-color-scheme: dark){
-  .alumni-item:hover { background:rgba(96,165,250,.1); }
+  .alumni-item:hover{ background:rgba(96,165,250,.1); }
 }
 
 /* text sizes */
-.alumni-meta {
-  display:flex; flex-wrap:wrap; gap:1rem; align-items:baseline;
+.alumni-meta{
+  display:flex; flex-wrap:wrap; gap:1.2rem; align-items:baseline;
 }
-.alumni-name {
-  font-weight:800;
+.alumni-name{
+  font-weight:900;
   color:var(--fg);
-  font-size:1.35rem;
+  font-size:1.6rem;   /* ≈ 22–23px */
+  letter-spacing:.2px;
 }
-.alumni-degree {
+.alumni-degree{
   color:var(--accent);
-  font-size:1.1rem;
+  font-size:1.4rem;
   font-weight:700;
 }
-.alumni-years {
+.alumni-years{
   color:var(--muted);
-  font-size:1.05rem;
+  font-size:1.3rem;
 }
 
-.alumni-thesis {
+.alumni-thesis{
   color:var(--fg);
-  margin-top:.5rem;
-  line-height:1.7;
-  font-size:1.2rem;
+  margin-top:.6rem;
+  line-height:1.75;
+  font-size:1.35rem;  /* ≈ 19–20px */
+  font-weight:500;
 }
-.alumni-thesis span {
+.alumni-thesis span{
   font-weight:800;
   color:var(--muted);
-  margin-right:.3rem;
+  margin-right:.4rem;
+  font-size:1.3rem;
 }
 
-/* Show more button */
-.showmore-wrap {
-  text-align:center;
-  margin-top:1.5rem;
+/* show more button */
+.showmore-wrap{ text-align:center; margin-top:2rem; }
+#showmore-btn{
+  border:none; background:var(--accent); color:white;
+  font-size:1.3rem; font-weight:800;
+  padding:.9rem 2.2rem; border-radius:999px;
+  cursor:pointer; transition:background .2s ease, transform .15s ease;
 }
-#showmore-btn {
-  border:none;
-  background:var(--accent);
-  color:white;
-  font-size:1.1rem;
-  padding:.7rem 1.6rem;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:700;
-  transition:background .2s ease, transform .15s ease;
-}
-#showmore-btn:hover {
-  background:#1e40af;
-  transform:scale(1.03);
+#showmore-btn:hover{
+  background:#1e40af; transform:scale(1.05);
 }
 </style>
 
@@ -155,35 +132,34 @@
   const buttons = document.querySelectorAll('.filters .fbtn');
   const items = Array.from(document.querySelectorAll('.alumni-item'));
   const showBtn = document.getElementById('showmore-btn');
-  let showing = 10; // number visible initially
+  let showing = 8; // visible initially
 
   function updateVisible(filter){
-    let count = 0;
+    let shown = 0;
     items.forEach(it=>{
       const match = (filter==='all' || it.dataset.degree===filter);
-      if(match && count < showing){ it.style.display='block'; count++; }
+      if(match && shown < showing){ it.style.display='block'; shown++; }
       else if(match){ it.style.display='none'; }
       else{ it.style.display='none'; }
     });
-    showBtn.style.display = (items.filter(it => it.style.display==='none').length>0) ? 'inline-block' : 'none';
+    showBtn.style.display = (items.filter(it=>it.style.display==='none').length>0) ? 'inline-block' : 'none';
   }
 
   buttons.forEach(btn=>{
     btn.addEventListener('click', ()=>{
       buttons.forEach(b=>b.classList.remove('is-active'));
       btn.classList.add('is-active');
-      showing = 10;
+      showing = 8;
       updateVisible(btn.dataset.filter);
     });
   });
 
   showBtn.addEventListener('click', ()=>{
-    showing += 10;
+    showing += 8;
     const active = document.querySelector('.filters .is-active');
     updateVisible(active ? active.dataset.filter : 'all');
   });
 
-  // initialize
   updateVisible('all');
 })();
 </script>

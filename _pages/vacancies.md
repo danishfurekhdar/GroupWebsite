@@ -22,16 +22,14 @@ If you are interested in working with us as a PhD student or postdoc, please sen
 ### Bsc / Master projects
 If you are a Bachlor or a Master student and looking for a project, contact me (or any group member) per email or stop by my office.
 
-<!-- begin topics grid -->
-{% capture _topics %}
-  {% include topics-grid.html %}
-{% endcapture %}
-{{ _topics | markdownify }}
-<!-- end topics grid -->
+
+{% include topics-grid.html %}
+
 
 
 <figure>
 <img src="{{ site.url }}{{ site.baseurl }}/images/picpic/Gallery/HIjena.png" width="95%">
 </figure>
+
 
 

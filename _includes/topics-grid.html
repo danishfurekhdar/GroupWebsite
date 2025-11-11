@@ -1,0 +1,131 @@
+<div class="topics-wrap">
+  <div class="topics-header">
+    <h2>Available Research Topics</h2>
+    <div class="filters" aria-label="Filter by level">
+      <button class="fbtn is-active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="BSc">BSc</button>
+      <button class="fbtn" data-filter="MSc">MSc</button>
+      <button class="fbtn" data-filter="PhD">PhD</button>
+      <button class="fbtn" data-filter="Postdoc">Postdoc</button>
+    </div>
+  </div>
+
+  <div class="topics-grid">
+    {% for t in site.data.topics %}
+    <article class="topic-card" data-level="{{ t.level | join:' ' }}">
+      <div class="topic-top">
+        <div class="topic-icon">{{ t.icon }}</div>
+        <h3 class="topic-title">
+          {% if t.link %}<a href="{{ t.link }}">{{ t.title }}</a>{% else %}{{ t.title }}{% endif %}
+        </h3>
+      </div>
+
+      <p class="topic-blurb">{{ t.blurb }}</p>
+
+      <div class="topic-tags">
+        {% for tag in t.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="topic-meta">
+        <div class="levels">
+          {% for lv in t.level %}
+            <span class="badge">{{ lv }}</span>
+          {% endfor %}
+        </div>
+        <div class="contact">
+          <span class="supervisor">👤 {{ t.supervisor }}</span>
+          {% if t.contact %}<a class="email" href="mailto:{{ t.contact }}">{{ t.contact }}</a>{% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+:root {
+  --card-bg: #ffffff;
+  --card-fg: #0f172a;
+  --muted: #64748b;
+  --ring: rgba(59,130,246,.25);
+  --accent: #2563eb;
+  --tag-bg: #eef2ff;
+  --tag-fg: #3730a3;
+  --shadow: 0 10px 25px rgba(0,0,0,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: #0b1220;
+    --card-fg: #e5e7eb;
+    --muted: #9aa4b2;
+    --ring: rgba(96,165,250,.25);
+    --accent: #60a5fa;
+    --tag-bg: #111827;
+    --tag-fg: #c7d2fe;
+    --shadow: 0 10px 25px rgba(0,0,0,.4);
+  }
+}
+.topics-wrap { margin: 1.5rem 0 2rem; }
+.topics-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.topics-header h2 { margin:0; font-size: clamp(1.3rem, 1.2rem + 1vw, 1.8rem); }
+.filters { display:flex; gap:.5rem; }
+.fbtn {
+  border:1px solid var(--muted); color:var(--muted); background:transparent;
+  padding:.4rem .7rem; border-radius:999px; font-size:.9rem; cursor:pointer;
+}
+.fbtn.is-active, .fbtn:hover { color:var(--accent); border-color:var(--accent); box-shadow:0 0 0 4px var(--ring); }
+
+.topics-grid {
+  display:grid; gap:1rem;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  margin-top:1rem;
+}
+.topic-card {
+  background:var(--card-bg); color:var(--card-fg);
+  border:1px solid rgba(148,163,184,.25);
+  border-radius:18px; padding:1rem; box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .2s ease;
+}
+.topic-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 16px 32px rgba(37,99,235,.15); }
+.topic-top { display:flex; align-items:center; gap:.7rem; margin-bottom:.4rem; }
+.topic-icon { font-size:1.4rem; line-height:1; }
+.topic-title { font-size:1.05rem; margin:0; }
+.topic-title a { color:inherit; text-decoration:none; border-bottom:1px dashed transparent; }
+.topic-title a:hover { border-color:var(--accent); }
+.topic-blurb { color:var(--muted); margin:.3rem 0 .7rem; line-height:1.35; }
+
+.topic-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.8rem; }
+.tag { background:var(--tag-bg); color:var(--tag-fg); padding:.15rem .5rem; border-radius:999px; font-size:.75rem; }
+
+.topic-meta { display:flex; align-items:flex-end; justify-content:space-between; gap:.5rem; }
+.levels { display:flex; gap:.3rem; flex-wrap:wrap; }
+.badge {
+  font-size:.7rem; padding:.18rem .45rem; border-radius:6px;
+  border:1px solid rgba(148,163,184,.35);
+}
+.contact { display:flex; flex-direction:column; align-items:flex-end; gap:.15rem; text-align:right; }
+.contact .email { color:var(--accent); text-decoration:none; font-size:.85rem; }
+.contact .supervisor { color:var(--muted); font-size:.8rem; }
+
+</style>
+
+<script>
+(function(){
+  const buttons = document.querySelectorAll('.filters .fbtn');
+  const cards = document.querySelectorAll('.topic-card');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const filt = btn.dataset.filter;
+      cards.forEach(card=>{
+        if (filt==='all') { card.style.display='block'; return; }
+        const levels = (card.dataset.level || '').split(' ');
+        card.style.display = levels.includes(filt) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>

@@ -11,127 +11,112 @@
     </div>
   </div>
 
-  <div class="alumni-grid">
+  <div class="alumni-list">
     {% assign sorted = site.data.alumni | sort: "graduation_year" | reverse %}
     {% for a in sorted %}
-    <article class="alumni-card" data-degree="{{ a.degree }}">
-      <div class="alumni-top">
-        <img class="alumni-photo" src="{{ a.photo | default: '/images/alumni/default.jpg' }}" alt="{{ a.name }} portrait" loading="lazy">
-        <div class="alumni-title">
-          <h3 class="alumni-name">{{ a.name }}</h3>
-          <div class="alumni-sub">{{ a.degree }} · {{ a.years }}</div>
-        </div>
+    <div class="alumni-item" data-degree="{{ a.degree }}">
+      <div class="alumni-meta">
+        <span class="alumni-name">{{ a.name }}</span>
+        <span class="alumni-degree">{{ a.degree }}</span>
+        {% if a.years %}<span class="alumni-years">{{ a.years }}</span>{% endif %}
       </div>
 
       {% if a.degree == "Postdoc" or a.degree == "Visitor" %}
         {% if a.work %}
-          <p class="alumni-thesis"><span>Research:</span> {{ a.work }}</p>
+        <div class="alumni-thesis"><span>Research:</span> {{ a.work }}</div>
         {% endif %}
       {% elsif a.thesis %}
-        <p class="alumni-thesis"><span>Thesis:</span> {{ a.thesis }}</p>
+        <div class="alumni-thesis"><span>Thesis:</span> {{ a.thesis }}</div>
       {% endif %}
-
-
-      <div class="alumni-now">
-        {% if a.now_role or a.now_at %}
-          <div class="now-line"><span>Now:</span> {{ a.now_role }}{% if a.now_role and a.now_at %}, {% endif %}{{ a.now_at }}</div>
-        {% endif %}
-
-        <div class="alumni-links">
-          {% if a.links.email %}<a href="mailto:{{ a.links.email }}" class="alink">Email</a>{% endif %}
-          {% if a.links.orcid %}<a href="https://orcid.org/{{ a.links.orcid }}" class="alink" target="_blank" rel="noopener">ORCID</a>{% endif %}
-          {% if a.links.scholar %}<a href="{{ a.links.scholar }}" class="alink" target="_blank" rel="noopener">Scholar</a>{% endif %}
-          {% if a.links.linkedin %}<a href="{{ a.links.linkedin }}" class="alink" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
-        </div>
-      </div>
-    </article>
+    </div>
     {% endfor %}
   </div>
 </div>
 
 <style>
-:root{
-  --card-bg:#ffffff; --card-fg:#0f172a; --muted:#4b5563;
-  --accent:#2563eb; --ring:rgba(59,130,246,.25);
-  --shadow:0 18px 40px rgba(0,0,0,.1);
+:root {
+  --fg:#0f172a; --muted:#475569; --accent:#2563eb; --ring:rgba(59,130,246,.25);
 }
 @media (prefers-color-scheme: dark){
-  :root{
-    --card-bg:#0b1220; --card-fg:#e5e7eb; --muted:#9aa4b2;
-    --accent:#60a5fa; --ring:rgba(96,165,250,.25);
-    --shadow:0 20px 50px rgba(0,0,0,.5);
-  }
+  :root { --fg:#e5e7eb; --muted:#94a3b8; --accent:#60a5fa; }
 }
 
-.alumni-wrap{ margin:2.5rem 0 2.5rem; }
-.alumni-header{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
-.alumni-header h2{ margin:0; font-size:clamp(2rem,1.5rem + 1.8vw,2.6rem); font-weight:800; }
+.alumni-wrap { margin:2rem 0 3rem; }
+.alumni-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.alumni-header h2 { margin:0; font-size:clamp(1.8rem,1.4rem + 1.6vw,2.4rem); font-weight:800; }
 
-/* filter buttons (match your topics style) */
-.filters{ display:flex; gap:.8rem; }
-.fbtn{
+.filters { display:flex; gap:.8rem; flex-wrap:wrap; }
+.fbtn {
   border:1px solid var(--muted); color:var(--muted); background:transparent;
-  padding:.6rem 1.1rem; border-radius:999px; font-size:1.05rem; cursor:pointer; font-weight:600;
+  padding:.45rem .9rem; border-radius:999px; font-size:1rem; cursor:pointer; font-weight:600;
 }
-.fbtn.is-active,.fbtn:hover{ color:var(--accent); border-color:var(--accent); box-shadow:0 0 0 5px var(--ring); }
-
-/* two big columns */
-.alumni-grid{
-  display:grid; gap:2rem;
-  grid-template-columns:repeat(2,minmax(380px,1fr));
-  max-width:1200px; margin:1.8rem auto 0;
+.fbtn.is-active, .fbtn:hover {
+  color:var(--accent); border-color:var(--accent);
+  box-shadow:0 0 0 4px var(--ring);
 }
-@media (max-width:900px){ .alumni-grid{ grid-template-columns:1fr; } }
 
-/* card */
-.alumni-card{
-  background:var(--card-bg); color:var(--card-fg);
-  border:1px solid rgba(148,163,184,.28);
-  border-radius:26px; padding:2.2rem 2.4rem;
-  box-shadow:var(--shadow);
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+.alumni-list {
+  margin-top:1.8rem;
+  display:flex; flex-direction:column;
+  gap:1.1rem;
 }
-.alumni-card:hover{ transform:translateY(-8px); border-color:var(--accent); box-shadow:0 24px 55px rgba(37,99,235,.18); }
 
-/* top row with photo */
-.alumni-top{ display:flex; align-items:center; gap:1.2rem; margin-bottom:1rem; }
-.alumni-photo{
-  width:92px; height:92px; object-fit:cover; border-radius:50%;
-  border:2px solid rgba(148,163,184,.5);
+.alumni-item {
+  border-bottom:1px solid rgba(148,163,184,.3);
+  padding-bottom:.8rem; margin-bottom:.8rem;
+  transition:background .15s ease;
 }
-.alumni-title{ display:flex; flex-direction:column; gap:.25rem; }
-.alumni-name{ margin:0; font-size:1.8rem; font-weight:800; letter-spacing:.2px; }
-.alumni-sub{ color:var(--muted); font-size:1.1rem; }
-
-/* thesis + now */
-.alumni-thesis{ margin:.8rem 0 1.2rem; font-size:1.2rem; line-height:1.65; color:var(--card-fg); }
-.alumni-thesis span{ color:var(--muted); font-weight:700; }
-.now-line{ font-size:1.15rem; color:var(--card-fg); margin-bottom:.6rem; }
-.now-line span{ color:var(--muted); font-weight:700; }
-
-/* links */
-.alumni-links{ display:flex; flex-wrap:wrap; gap:.6rem; }
-.alink{
-  display:inline-block; text-decoration:none; font-weight:700;
-  border:1px solid rgba(148,163,184,.5); padding:.4rem .7rem; border-radius:999px;
-  font-size:1.05rem; color:var(--accent);
+.alumni-item:hover {
+  background:rgba(37,99,235,.05);
 }
-.alink:hover{ border-color:var(--accent); box-shadow:0 0 0 5px var(--ring); }
+@media (prefers-color-scheme: dark){
+  .alumni-item:hover { background:rgba(96,165,250,.1); }
+}
+
+.alumni-meta {
+  display:flex; flex-wrap:wrap; gap:.8rem; align-items:baseline;
+}
+.alumni-name {
+  font-weight:700;
+  color:var(--fg);
+  font-size:1.15rem;
+}
+.alumni-degree {
+  color:var(--accent);
+  font-size:1rem;
+  font-weight:600;
+}
+.alumni-years {
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.alumni-thesis {
+  color:var(--fg);
+  margin-top:.3rem;
+  line-height:1.5;
+  font-size:1.05rem;
+}
+.alumni-thesis span {
+  font-weight:700;
+  color:var(--muted);
+  margin-right:.3rem;
+}
 </style>
 
 <script>
 (function(){
   const buttons = document.querySelectorAll('.filters .fbtn');
-  const cards = document.querySelectorAll('.alumni-card');
+  const rows = document.querySelectorAll('.alumni-item');
   buttons.forEach(btn=>{
     btn.addEventListener('click', ()=>{
       buttons.forEach(b=>b.classList.remove('is-active'));
       btn.classList.add('is-active');
       const filt = btn.dataset.filter;
-      cards.forEach(card=>{
-        if (filt==='all') { card.style.display='block'; return; }
-        const deg = card.dataset.degree || '';
-        card.style.display = (deg === filt) ? 'block' : 'none';
+      rows.forEach(row=>{
+        if (filt==='all') { row.style.display='block'; return; }
+        const deg = row.dataset.degree || '';
+        row.style.display = (deg===filt) ? 'block' : 'none';
       });
     });
   });

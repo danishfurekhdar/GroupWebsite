@@ -1,0 +1,74 @@
+- name: Anne Weber
+  degree: PhD
+  years: 2019–2024
+  graduation_year: 2024
+  thesis: "Nonlinear interference and electron dynamics in strong-field ionization"
+  photo: "/images/alumni/anne-weber.jpg"
+  now_role: Postdoc
+  now_at: "Max Planck Institute for the Physics of Complex Systems, Dresden"
+  links:
+    orcid: "0000-0002-1234-5678"
+    scholar: "https://scholar.google.com/citations?user=XXXX"
+    linkedin: "https://www.linkedin.com/in/anne-weber"
+    email: "anne@example.com"
+
+- name: Shreyas Ramakrishna
+  degree: MSc
+  years: 2021–2023
+  graduation_year: 2023
+  thesis: "Nondipole momentum shifts in mid-IR ATI"
+  photo: "/images/alumni/shreyas.jpg"
+  now_role: PhD candidate
+  now_at: "FSU Jena"
+  links:
+    orcid: ""
+    scholar: ""
+    linkedin: ""
+    email: "shreyas@example.com"
+
+- name: Björn Minneker
+  degree: Postdoc
+  years: 2020–2022
+  graduation_year: 2022
+  thesis: "HPC toolchains for strong-field theory (group lead projects)"
+  photo: "/images/alumni/bjoern.jpg"
+  now_role: Senior Scientist
+  now_at: "GSI Helmholtzzentrum"
+  links:
+    linkedin: "https://www.linkedin.com/in/bjoern-minneker"
+    email: "bjoern@example.com"
+
+- name: Danish Furekh Dar
+  degree: PhD
+  years: 2021–2025
+  graduation_year: 2025
+  thesis: "Theoretical Investigations of Strong-Field Ionization and Momentum Distributions"
+  photo: "/images/alumni/danish.jpg"
+  now_role: Postdoc
+  now_at: "TBD"
+  links:
+    orcid: "0000-0002-9999-8888"
+    scholar: "https://scholar.google.com/citations?user=YYYY"
+    email: "danish@example.com"
+
+- name: Maria Schmidt
+  degree: BSc
+  years: 2022–2023
+  graduation_year: 2023
+  thesis: "ATI peak spacing in few-cycle pulses"
+  photo: ""
+  now_role: MSc student
+  now_at: "ETH Zürich"
+  links:
+    linkedin: "https://www.linkedin.com/in/maria-schmidt"
+
+- name: Luca Rossi
+  degree: MSc
+  years: 2020–2022
+  graduation_year: 2022
+  thesis: "Twisted beams and PMDs"
+  photo: "/images/alumni/luca.jpg"
+  now_role: Software Engineer
+  now_at: "NVIDIA, Munich"
+  links:
+    linkedin: "https://www.linkedin.com/in/luca-rossi"

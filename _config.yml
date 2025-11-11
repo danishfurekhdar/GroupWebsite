@@ -45,3 +45,10 @@ collections:
   members:
     output: true
     permalink: /:path/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  parse_block_html: true
+  syntax_highlighter_opts:
+    block: false

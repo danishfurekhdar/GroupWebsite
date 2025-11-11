@@ -1,0 +1,133 @@
+<div class="alumni-wrap">
+  <div class="alumni-header">
+    <h2>Alumni</h2>
+    <div class="filters" aria-label="Filter by degree">
+      <button class="fbtn is-active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="BSc">BSc</button>
+      <button class="fbtn" data-filter="MSc">MSc</button>
+      <button class="fbtn" data-filter="PhD">PhD</button>
+      <button class="fbtn" data-filter="Postdoc">Postdoc</button>
+    </div>
+  </div>
+
+  <div class="alumni-grid">
+    {% assign sorted = site.data.alumni | sort: "graduation_year" | reverse %}
+    {% for a in sorted %}
+    <article class="alumni-card" data-degree="{{ a.degree }}">
+      <div class="alumni-top">
+        <img class="alumni-photo" src="{{ a.photo | default: '/images/alumni/default.jpg' }}" alt="{{ a.name }} portrait" loading="lazy">
+        <div class="alumni-title">
+          <h3 class="alumni-name">{{ a.name }}</h3>
+          <div class="alumni-sub">{{ a.degree }} · {{ a.years }}</div>
+        </div>
+      </div>
+
+      {% if a.thesis %}
+      <p class="alumni-thesis"><span>Thesis:</span> {{ a.thesis }}</p>
+      {% endif %}
+
+      <div class="alumni-now">
+        {% if a.now_role or a.now_at %}
+          <div class="now-line"><span>Now:</span> {{ a.now_role }}{% if a.now_role and a.now_at %}, {% endif %}{{ a.now_at }}</div>
+        {% endif %}
+
+        <div class="alumni-links">
+          {% if a.links.email %}<a href="mailto:{{ a.links.email }}" class="alink">Email</a>{% endif %}
+          {% if a.links.orcid %}<a href="https://orcid.org/{{ a.links.orcid }}" class="alink" target="_blank" rel="noopener">ORCID</a>{% endif %}
+          {% if a.links.scholar %}<a href="{{ a.links.scholar }}" class="alink" target="_blank" rel="noopener">Scholar</a>{% endif %}
+          {% if a.links.linkedin %}<a href="{{ a.links.linkedin }}" class="alink" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+:root{
+  --card-bg:#ffffff; --card-fg:#0f172a; --muted:#4b5563;
+  --accent:#2563eb; --ring:rgba(59,130,246,.25);
+  --shadow:0 18px 40px rgba(0,0,0,.1);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --card-bg:#0b1220; --card-fg:#e5e7eb; --muted:#9aa4b2;
+    --accent:#60a5fa; --ring:rgba(96,165,250,.25);
+    --shadow:0 20px 50px rgba(0,0,0,.5);
+  }
+}
+
+.alumni-wrap{ margin:2.5rem 0 2.5rem; }
+.alumni-header{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.alumni-header h2{ margin:0; font-size:clamp(2rem,1.5rem + 1.8vw,2.6rem); font-weight:800; }
+
+/* filter buttons (match your topics style) */
+.filters{ display:flex; gap:.8rem; }
+.fbtn{
+  border:1px solid var(--muted); color:var(--muted); background:transparent;
+  padding:.6rem 1.1rem; border-radius:999px; font-size:1.05rem; cursor:pointer; font-weight:600;
+}
+.fbtn.is-active,.fbtn:hover{ color:var(--accent); border-color:var(--accent); box-shadow:0 0 0 5px var(--ring); }
+
+/* two big columns */
+.alumni-grid{
+  display:grid; gap:2rem;
+  grid-template-columns:repeat(2,minmax(380px,1fr));
+  max-width:1200px; margin:1.8rem auto 0;
+}
+@media (max-width:900px){ .alumni-grid{ grid-template-columns:1fr; } }
+
+/* card */
+.alumni-card{
+  background:var(--card-bg); color:var(--card-fg);
+  border:1px solid rgba(148,163,184,.28);
+  border-radius:26px; padding:2.2rem 2.4rem;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.alumni-card:hover{ transform:translateY(-8px); border-color:var(--accent); box-shadow:0 24px 55px rgba(37,99,235,.18); }
+
+/* top row with photo */
+.alumni-top{ display:flex; align-items:center; gap:1.2rem; margin-bottom:1rem; }
+.alumni-photo{
+  width:92px; height:92px; object-fit:cover; border-radius:50%;
+  border:2px solid rgba(148,163,184,.5);
+}
+.alumni-title{ display:flex; flex-direction:column; gap:.25rem; }
+.alumni-name{ margin:0; font-size:1.8rem; font-weight:800; letter-spacing:.2px; }
+.alumni-sub{ color:var(--muted); font-size:1.1rem; }
+
+/* thesis + now */
+.alumni-thesis{ margin:.8rem 0 1.2rem; font-size:1.2rem; line-height:1.65; color:var(--card-fg); }
+.alumni-thesis span{ color:var(--muted); font-weight:700; }
+.now-line{ font-size:1.15rem; color:var(--card-fg); margin-bottom:.6rem; }
+.now-line span{ color:var(--muted); font-weight:700; }
+
+/* links */
+.alumni-links{ display:flex; flex-wrap:wrap; gap:.6rem; }
+.alink{
+  display:inline-block; text-decoration:none; font-weight:700;
+  border:1px solid rgba(148,163,184,.5); padding:.4rem .7rem; border-radius:999px;
+  font-size:1.05rem; color:var(--accent);
+}
+.alink:hover{ border-color:var(--accent); box-shadow:0 0 0 5px var(--ring); }
+</style>
+
+<script>
+(function(){
+  const buttons = document.querySelectorAll('.filters .fbtn');
+  const cards = document.querySelectorAll('.alumni-card');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const filt = btn.dataset.filter;
+      cards.forEach(card=>{
+        if (filt==='all') { card.style.display='block'; return; }
+        const deg = card.dataset.degree || '';
+        card.style.display = (deg === filt) ? 'block' : 'none';
+      });
+    });
+  });
+})();
+</script>

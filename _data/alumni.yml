@@ -72,3 +72,15 @@
   now_at: "NVIDIA, Munich"
   links:
     linkedin: "https://www.linkedin.com/in/luca-rossi"
+
+- name: Prof. Emilio Fiordilino
+  degree: Visitor
+  years: 2024
+  graduation_year: 2024
+  thesis: "Collaborative work on photoionization dynamics"
+  photo: "/images/alumni/emilio.jpg"
+  now_role: Professor
+  now_at: "University of Palermo, Italy"
+  links:
+    email: "emilio@example.com"
+

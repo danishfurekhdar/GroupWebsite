@@ -15,7 +15,13 @@
     {% for a in sorted %}
     <div class="alumni-item" data-degree="{{ a.degree }}">
       <div class="alumni-meta">
-        <span class="alumni-name">{{ a.name }}</span>
+        <span class="alumni-name">
+  {% if a.homepage %}
+    <a href="{{ a.homepage }}" target="_blank" rel="noopener">{{ a.name }}</a>
+  {% else %}
+    {{ a.name }}
+  {% endif %}
+</span>
         <span class="alumni-degree">{{ a.degree }}</span>
         {% if a.years %}
         <span class="alumni-years">{{ a.years }}</span>
@@ -124,6 +130,16 @@
 #showmore-btn:hover{
   background:#1e40af; transform:scale(1.05);
 }
+
+.alumni-name a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px dashed transparent;
+}
+.alumni-name a:hover {
+  border-color: var(--accent);
+}
+
 </style>
 
 <script>
